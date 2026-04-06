@@ -188,68 +188,52 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
 
             <div id="top"></div>
 
+
             <section class="no-top no-bottom position-relative overflow-hidden" id="hero-section">
                 <style>
-                #hero-section{min-height:80vh;display:flex;align-items:flex-end;position:relative;background:#f5f0ea}
+                #hero-section{min-height:65vh;display:flex;align-items:center;position:relative;background:#f5f0ea}
                 #hero-section .hero-bg{position:absolute;inset:0;z-index:0}
                 #hero-section .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
-                #hero-section .hero-cta-bar{position:relative;z-index:2;width:100%;display:flex;justify-content:center;gap:16px;padding-bottom:72px}
+                #hero-section .hero-inner{position:relative;z-index:2;width:100%;text-align:center;padding:100px 20px 48px}
+                .hero-inner h1{font-size:2.2rem;font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;text-shadow:0 2px 20px rgba(0,0,0,0.35),0 1px 4px rgba(0,0,0,0.2);max-width:700px;margin-left:auto;margin-right:auto}
+                .hero-inner .hero-sub{font-size:15px;color:rgba(255,255,255,0.9);font-weight:500;margin-bottom:28px;text-shadow:0 1px 8px rgba(0,0,0,0.3);max-width:560px;margin-left:auto;margin-right:auto}
+                .hero-inner .hero-ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
                 .hero-pill-orange{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;font-weight:800;font-size:15px;padding:15px 36px;border-radius:999px;text-decoration:none;border:none;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 18px rgba(247,86,0,0.3)}
                 .hero-pill-orange:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(247,86,0,0.4);color:#fff}
                 .hero-pill-white{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.9);color:#002C6D;font-weight:700;font-size:15px;padding:15px 32px;border-radius:999px;text-decoration:none;border:none;transition:all 0.15s;box-shadow:0 2px 14px rgba(0,0,0,0.1)}
                 .hero-pill-white:hover{background:#fff;box-shadow:0 4px 22px rgba(0,0,0,0.14);color:#002C6D}
-                .hero-scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;cursor:pointer}
-                .hero-scroll svg{animation:hero-bounce 2s ease-in-out infinite;opacity:0.7;filter:drop-shadow(0 1px 4px rgba(0,0,0,0.15))}
-                @keyframes hero-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-                @media(max-width:991px){
-                    #hero-section{min-height:70vh}
-                    #hero-section .hero-cta-bar{padding-bottom:64px}
-                }
+                #hero-section .hero-bg::after{content:'';position:absolute;inset:0;background:rgba(0,20,50,0.35)}
                 @media(max-width:600px){
-                    #hero-section{min-height:65vh}
-                    #hero-section .hero-cta-bar{flex-direction:column;align-items:center;gap:12px;padding-bottom:56px}
-                    .hero-pill-orange,.hero-pill-white{min-width:240px;justify-content:center}
-                    .hero-scroll{bottom:16px}
+                    #hero-section{min-height:55vh}
+                    .hero-inner h1{font-size:1.6rem}
+                    .hero-pill-orange,.hero-pill-white{padding:13px 28px;font-size:14px}
                 }
                 </style>
 
                 <div class="hero-bg">
                     <img src="images/slider/soligohero11.webp" alt="Couple relaxing on couch in a comfortable Florida home">
                 </div>
-                <div class="hero-cta-bar">
-                    <a class="hero-pill-orange" href="#quote">Get Free Quote</a>
-                    <a class="hero-pill-white" href="tel:3213847868">Tap to Call (321) 384-7868</a>
-                </div>
-                <a class="hero-scroll" href="#about" onclick="event.preventDefault();document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                </a>
-            </section>
-
-            <section class="pt50" id="about">
-                <div class="container">
-                    <div class="row align-items-center gx-5">
-                        <div class="col-lg-6 mb-4 mb-lg-0">
-                            <img loading="lazy" src="images/team/austin-jaime.webp" class="img-fluid rounded-20px wow scaleIn" alt="Austin and Jaime, founders of Soligo Air" width="701" height="800">
-                        </div>
-                        <div class="col-lg-5 offset-lg-1">
-                            <div class="subtitle wow fadeInUp mb-3">Meet the Founders</div>
-                            <h2 class="wow fadeInUp">Meet the Founders Behind Soligo Air</h2>
-                            <p class="wow fadeInUp">Austin and Jaime started Soligo Air with a simple goal: give Central Florida homeowners a better HVAC experience. That means fast response, honest recommendations, clear pricing, and work done right the first time.</p>
-                            <p class="wow fadeInUp">They built the company around the kind of service people actually remember — showing up when they say they will, explaining the problem clearly, and treating every home with respect. Today, that same hands-on approach still drives every repair, tune-up, and installation Soligo Air provides.</p>
-                            <div class="spacer-10"></div>
-                            <ul class="wow fadeInUp" style="list-style:none;padding:0;margin:0 0 20px 0;">
-                                <li style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;color:#4a5568;font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Licensed and insured HVAC professionals</li>
-                                <li style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;color:#4a5568;font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Upfront pricing before work begins</li>
-                                <li style="display:flex;align-items:center;gap:8px;font-size:14px;color:#4a5568;font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Fast service across Central Florida</li>
-                            </ul>
-                            <a class="btn-main wow fadeInUp" href="#services">Our Services</a>
-                            &nbsp;&nbsp;
-                            <a class="btn-main bg-color-2 wow fadeInUp" href="tel:3213847868">Call Now</a>
-                        </div>
+                <div class="hero-inner">
+                    <h1>AC Repair &amp; HVAC Services in Orlando, FL</h1>
+                    <p class="hero-sub">Fast response, honest pricing, and licensed technicians you can trust.</p>
+                    <div class="hero-ctas">
+                        <a class="hero-pill-orange" href="#quote">Get Free Quote</a>
+                        <a class="hero-pill-white" href="tel:3213847868">Tap to Call (321) 384-7868</a>
                     </div>
-
                 </div>
             </section>
+
+            <section class="no-top no-bottom" style="background:#002C6D;padding:16px 0;">
+                <div class="container">
+                    <div style="display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;color:#fff;font-size:13px;font-weight:600;">
+                        <span style="display:flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg> Same-Day Service</span>
+                        <span style="display:flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 300+ Five-Star Reviews</span>
+                        <span style="display:flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Licensed FL #CAC1823002</span>
+                        <span style="display:flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6"/><path d="M9 9h.01"/><path d="M15 15h.01"/></svg> 0% Financing Available</span>
+                    </div>
+                </div>
+            </section>
+
 
             <section class="no-top" id="services">
                 <div class="container">
@@ -307,214 +291,6 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                             </div>
                         </div>
 
-                    </div>
-                </div>
-            </section>
-
-            <section class="bg-color-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 offset-lg-3 text-center">
-                            <div class="subtitle bg-color-2 text-white wow fadeInUp mb-3">Why Soligo Air</div>
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Local Expertise. Honest Service. Real Results.</h2>
-                            <p class="lead wow fadeInUp">Soligo Air was built on one principle: treat every customer's home like your own.</p>
-                            <div class="spacer-single"></div>
-                        </div>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".0s">
-                            <div>
-                                <span style="position:absolute;background:#002C6D;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m8 11 2 2 4-4"/></svg></span>
-                                <div class="pl-80">
-                                    <h4>Upfront, Honest Diagnostics</h4>
-                                    <p class="mb-0">We explain exactly what's wrong and what it costs before any work begins. No upsells. No surprises.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                            <div>
-                                <span style="position:absolute;background:#002C6D;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg></span>
-                                <div class="pl-80">
-                                    <h4>Fast Response, Every Time</h4>
-                                    <p class="mb-0">Our dispatchers are available around the clock. Fast response is our standard, not a marketing claim.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                            <div>
-                                <span style="position:absolute;background:#002C6D;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
-                                <div class="pl-80">
-                                    <h4>Certified Technicians</h4>
-                                    <p class="mb-0">Every technician is EPA-certified, manufacturer-trained, and undergoes annual continuing education.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                            <div>
-                                <span style="position:absolute;background:#F75600;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6"/><path d="M9 9h.01"/><path d="M15 15h.01"/></svg></span>
-                                <div class="pl-80">
-                                    <h4>0% Financing Available</h4>
-                                    <p class="mb-0">A new system shouldn't break the bank. We offer flexible financing options to fit any budget.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                            <div>
-                                <span style="position:absolute;background:#F75600;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></svg></span>
-                                <div class="pl-80">
-                                    <h4>Emergency Services 24/7</h4>
-                                    <p class="mb-0">Your AC doesn't break during business hours. Neither do we. Emergency dispatch anytime.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="1s">
-                            <div>
-                                <span style="position:absolute;background:#F75600;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-                                <div class="pl-80">
-                                    <h4>Satisfaction Guarantee</h4>
-                                    <p class="mb-0">We stand behind every job. If you're not satisfied, we'll make it right. No questions asked.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="spacer-double"></div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="no-top mt-100">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="padding60 rounded-1 sm-padding40 overflow-hidden position-relative jarallax text-light">
-                                <img loading="lazy" src="images/background/9.webp" class="jarallax-img" alt="">
-                                <div class="row align-items-center g-4 gx-5 relative z-index-1000">
-                                    <div class="col-lg-8">
-                                        <div class="subtitle s2 wow fadeInUp mb-3">HVAC Specialist</div>
-                                        <h2 class="mb20 wow fadeInUp" data-wow-delay=".2s">Soligo Air specializes in providing top-notch heating, ventilation, and air conditioning services tailored to every Central Florida home.</h2>
-                                        <a class="btn-main" href="#quote">Get Free Quote</a>
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <img loading="lazy" src="images/team/soligo-team.webp" class="img-fluid rounded-10px wow scaleIn" alt="Austin and Jaime, co-founders of Soligo Air" width="800" height="850">
-                                        <div class="d-flex justify-content-center gap-4 mt-3">
-                                            <div class="text-center">
-                                                <h5 class="mb-0">Austin</h5>
-                                                <p class="small mb-0">Co-Founder</p>
-                                            </div>
-                                            <div class="text-center">
-                                                <h5 class="mb-0">Jaime</h5>
-                                                <p class="small mb-0">Co-Founder</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> 
-
-            <section class="no-top">
-                <style>
-                .hiw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start;position:relative}
-                .hiw-card{text-align:center;padding:0 20px;position:relative}
-                .hiw-icon{width:56px;height:56px;border-radius:14px;background:#fff;border:1.5px solid #e8ecf2;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 2px 10px rgba(0,44,109,0.06)}
-                .hiw-pill{display:inline-block;font-size:11px;font-weight:700;color:#002C6D;background:#eef2fa;padding:4px 14px;border-radius:999px;letter-spacing:0.5px;margin-bottom:10px}
-                .hiw-card h4{font-size:15px;font-weight:800;color:#002C6D;margin-bottom:6px}
-                .hiw-card p{font-size:13px;color:#8a96aa;line-height:1.5;margin:0}
-                .hiw-connector{position:absolute;top:28px;left:calc(50% + 36px);width:calc(100% - 72px);height:1px;border-top:2px dashed #dce3ee}
-                .hiw-card:last-child .hiw-connector{display:none}
-                @media(max-width:991px){
-                    .hiw-grid{grid-template-columns:repeat(2,1fr);gap:32px 0}
-                    .hiw-connector{display:none}
-                }
-                @media(max-width:600px){
-                    .hiw-grid{grid-template-columns:1fr;gap:28px}
-                }
-                </style>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 offset-lg-3 text-center">
-                            <div class="subtitle wow fadeInUp mb-3">Services Process</div>
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">How It Works</h2>
-                            <p class="lead wow fadeInUp">Getting your AC fixed is simple, transparent, and stress-free.</p>
-                            <div class="spacer-single"></div>
-                        </div>
-                    </div>
-                    <div class="hiw-grid">
-                        <div class="hiw-card wow fadeInUp" data-wow-delay=".1s">
-                            <div class="hiw-connector"></div>
-                            <div class="hiw-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.8.3 1.58.52 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.76.22 1.54.4 2.34.52A2 2 0 0 1 22 16.92z"/></svg></div>
-                            <div class="hiw-pill">Step 1</div>
-                            <h4>Call or Request Online</h4>
-                            <p>Reach us by phone or submit a request — we respond fast.</p>
-                        </div>
-                        <div class="hiw-card wow fadeInUp" data-wow-delay=".25s">
-                            <div class="hiw-connector"></div>
-                            <div class="hiw-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-                            <div class="hiw-pill">Step 2</div>
-                            <h4>We Diagnose the Issue</h4>
-                            <p>A certified tech inspects your system and explains what's wrong.</p>
-                        </div>
-                        <div class="hiw-card wow fadeInUp" data-wow-delay=".4s">
-                            <div class="hiw-connector"></div>
-                            <div class="hiw-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-                            <div class="hiw-pill">Step 3</div>
-                            <h4>You Approve the Price</h4>
-                            <p>Upfront quote before any work begins. No surprises.</p>
-                        </div>
-                        <div class="hiw-card wow fadeInUp" data-wow-delay=".55s">
-                            <div class="hiw-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                            <div class="hiw-pill">Step 4</div>
-                            <h4>Job Done Right</h4>
-                            <p>We fix it, clean up, and guarantee the work.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="no-top">
-                <div class="container">
-                    <div class="row  gx-5 align-items-center">
-                        <div class="col-lg-6">
-                            <div class="subtitle wow fadeInUp mb-3">Our Specialty</div>
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Trusted by Central Florida Homeowners Since 2023</h2>
-                            <p class="wow fadeInUp">Soligo Air is Central Florida's trusted HVAC contractor. With EPA-certified technicians and manufacturer training across all major brands, we provide reliable AC repair, replacement, and maintenance. We're local, we're fast, and we stand behind every job we do.</p>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="row g-4">
-                                <div class="col-6">
-                                    <img loading="lazy" src="images/misc/9.webp" class="img-fluid rounded-10 mb-4 wow scaleIn" alt="">
-                                    <div class="col-12 text-center">
-                                        <div class="bg-color text-light px-4 pt30 pb10 rounded-10 wow fadeInLeft">
-                                            <div class="de_count">
-                                                <h3><span class="timer" data-to="4200" data-speed="3000"></span>+</h3>
-                                                <h4>Homes Served</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="spacer-double sm-hide"></div>
-                                    <div class="col-12 text-center">
-                                        <div class="bg-color-3 px-4 pt30 pb10 rounded-10 wow fadeInRight">
-                                            <div class="de_count">
-                                                <h3><span class="timer" data-to="300" data-speed="3000"></span>+</h3>
-                                                <h4>5-Star Reviews</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <img loading="lazy" src="images/misc/8.webp" class="img-fluid rounded-10 mt-4 wow scaleIn" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
             </section>
@@ -644,128 +420,60 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                 </div>
             </section>
 
-            <section class="bg-color-3">
+            <section class="no-top">
+                <style>
+                .hiw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start;position:relative}
+                .hiw-card{text-align:center;padding:0 20px;position:relative}
+                .hiw-icon{width:56px;height:56px;border-radius:14px;background:#fff;border:1.5px solid #e8ecf2;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 2px 10px rgba(0,44,109,0.06)}
+                .hiw-pill{display:inline-block;font-size:11px;font-weight:700;color:#002C6D;background:#eef2fa;padding:4px 14px;border-radius:999px;letter-spacing:0.5px;margin-bottom:10px}
+                .hiw-card h4{font-size:15px;font-weight:800;color:#002C6D;margin-bottom:6px}
+                .hiw-card p{font-size:13px;color:#8a96aa;line-height:1.5;margin:0}
+                .hiw-connector{position:absolute;top:28px;left:calc(50% + 36px);width:calc(100% - 72px);height:1px;border-top:2px dashed #dce3ee}
+                .hiw-card:last-child .hiw-connector{display:none}
+                @media(max-width:991px){
+                    .hiw-grid{grid-template-columns:repeat(2,1fr);gap:32px 0}
+                    .hiw-connector{display:none}
+                }
+                @media(max-width:600px){
+                    .hiw-grid{grid-template-columns:1fr;gap:28px}
+                }
+                </style>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 offset-lg-3 text-center">                            
-                            <div class="subtitle bg-color-2 text-light wow fadeInUp mb-3">Do you have</div>
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Any questions?</h2>
-                        </div>
-                    </div>
-
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6 mb-sm-20 position-relative">
-                            <div class="relative p-4">
-                                <div class="absolute start-50px top-50px">
-                                    <i class="bg-color text-light  fs-48 p-2  id-color icofont-headphone-alt rounded-10px mb-2 wow scaleIn"></i><br>
-                                </div>
-                                <img loading="lazy" src="images/misc/1.webp" class="img-fluid rounded-20px wow zoomIn" data-wow-delay="0s" alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="accordion s2 wow fadeInUp">
-                                <div class="accordion-section">
-                                    <div class="accordion-section-title" data-tab="#accordion-a1">
-                                        How quickly can you respond to an AC emergency?
-                                    </div>
-                                    <div class="accordion-section-content" id="accordion-a1">
-                                        <p>We offer same-day emergency dispatch and typically respond within 25-60 minutes across Central Florida.</p>
-                                    </div>
-                                    <div class="accordion-section-title" data-tab="#accordion-a2">
-                                        How much does an AC tune-up cost?
-                                    </div>
-                                    <div class="accordion-section-content" id="accordion-a2">
-                                        <p>Our AC tune-up is $89 flat rate — no hidden fees, no upsells. Air Care+ members get 2 included per year.</p>
-                                    </div>                                        
-                                    <div class="accordion-section-title" data-tab="#accordion-a3">
-                                        Do you offer financing?
-                                    </div>
-                                    <div class="accordion-section-content" id="accordion-a3">
-                                        <p>Yes, we offer 0% financing options for qualifying AC replacements. Ask us about current programs.</p>
-                                    </div>
-                                    <div class="accordion-section-title" data-tab="#accordion-a4">
-                                        What is Air Care+?
-                                    </div>
-                                    <div class="accordion-section-content" id="accordion-a4">
-                                        <p>Air Care+ is our $29/month maintenance plan with 2 annual tune-ups, 15% off repairs, and priority dispatch.</p>
-                                    </div>
-                                    <div class="accordion-section-title" data-tab="#accordion-a5">
-                                        Are your technicians licensed?
-                                    </div>
-                                    <div class="accordion-section-content" id="accordion-a5">
-                                        <p>Yes. FL License #CAC1823002. All technicians are EPA-certified and manufacturer-trained.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="container">
-                    <div class="row g-4">
                         <div class="col-lg-6 offset-lg-3 text-center">
-                            <div class="subtitle wow fadeInUp mb-3">Latest Post</div>
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">HVAC Tips for Central Florida Homeowners</h2>
-                            <p class="lead wow fadeInUp">Stay up to date with seasonal AC tips, energy savings advice, and maintenance best practices from the Soligo Air team.</p>
+                            <div class="subtitle wow fadeInUp mb-3">Services Process</div>
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">How It Works</h2>
+                            <p class="lead wow fadeInUp">Getting your AC fixed is simple, transparent, and stress-free.</p>
                             <div class="spacer-single"></div>
                         </div>
                     </div>
-                    <div class="row g-4">
-                        <div class="col-lg-4 col-md-6 mb10">
-                            <div class="bloglist rounded-20px">
-                                    <div class="post-content">
-                                        <div class="post-image">
-                                            <div class="d-tagline">
-                                                <span>tips &amp; tricks</span>
-                                            </div>
-                                            <img loading="lazy" alt="" src="images/news/1.webp" class="lazy">
-                                        </div>
-                                        <div class="post-text padding40 pt-2 h-100">
-                                            <h4><a href="blog-single.html">Tips for Optimizing Your AC System in Florida Heat</a></h4>
-                                            <p>Florida summers push your AC to its limits. Here are the key things every homeowner should know to keep their system running efficiently all season long...</p>
-                                            <a class="btn-main btn-light-trans mt-3" href="blog-single.html">Read more</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="hiw-grid">
+                        <div class="hiw-card wow fadeInUp" data-wow-delay=".1s">
+                            <div class="hiw-connector"></div>
+                            <div class="hiw-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.8.3 1.58.52 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.76.22 1.54.4 2.34.52A2 2 0 0 1 22 16.92z"/></svg></div>
+                            <div class="hiw-pill">Step 1</div>
+                            <h4>Call or Request Online</h4>
+                            <p>Reach us by phone or submit a request — we respond fast.</p>
                         </div>
-                        
-                        <div class="col-lg-4 col-md-6 mb10">
-                            <div class="bloglist rounded-20px">
-                                    <div class="post-content">
-                                        <div class="post-image">
-                                            <div class="d-tagline">
-                                                <span>tips &amp; tricks</span>
-                                            </div>
-                                            <img loading="lazy" alt="" src="images/news/2.webp" class="lazy">
-                                        </div>
-                                        <div class="post-text padding40 pt-2 h-100">
-                                            <h4><a href="blog-single.html">When to Repair vs. Replace Your AC System</a></h4>
-                                            <p>Not sure whether to repair or replace your aging AC unit? We break down the decision with honest criteria and real cost comparisons...</p>
-                                            <a class="btn-main btn-light-trans mt-3" href="blog-single.html">Read more</a>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="hiw-card wow fadeInUp" data-wow-delay=".25s">
+                            <div class="hiw-connector"></div>
+                            <div class="hiw-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+                            <div class="hiw-pill">Step 2</div>
+                            <h4>We Diagnose the Issue</h4>
+                            <p>A certified tech inspects your system and explains what's wrong.</p>
                         </div>
-                        
-                        <div class="col-lg-4 col-md-6 mb10">
-                            <div class="bloglist rounded-20px">
-                                    <div class="post-content">
-                                        <div class="post-image">
-                                            <div class="d-tagline">
-                                                <span>tips &amp; tricks</span>
-                                            </div>
-                                            <img loading="lazy" alt="" src="images/news/3.webp" class="lazy">
-                                        </div>
-                                        <div class="post-text padding40 pt-2 h-100">
-                                            <h4><a href="blog-single.html">How Indoor Air Quality Affects Your Family's Health</a></h4>
-                                            <p>Poor indoor air quality is more common than most homeowners realize. Learn how regular maintenance and air quality upgrades can make a difference...</p>
-                                            <a class="btn-main btn-light-trans mt-3" href="blog-single.html">Read more</a>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="hiw-card wow fadeInUp" data-wow-delay=".4s">
+                            <div class="hiw-connector"></div>
+                            <div class="hiw-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                            <div class="hiw-pill">Step 3</div>
+                            <h4>You Approve the Price</h4>
+                            <p>Upfront quote before any work begins. No surprises.</p>
+                        </div>
+                        <div class="hiw-card wow fadeInUp" data-wow-delay=".55s">
+                            <div class="hiw-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                            <div class="hiw-pill">Step 4</div>
+                            <h4>Job Done Right</h4>
+                            <p>We fix it, clean up, and guarantee the work.</p>
                         </div>
                     </div>
                 </div>
@@ -830,6 +538,132 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                 </div>
             </section>
 
+            <section class="pt50" id="about">
+                <div class="container">
+                    <div class="row align-items-center gx-5">
+                        <div class="col-lg-6 mb-4 mb-lg-0">
+                            <img loading="lazy" src="images/team/austin-jaime.webp" class="img-fluid rounded-20px wow scaleIn" alt="Austin and Jaime, founders of Soligo Air" width="701" height="800">
+                        </div>
+                        <div class="col-lg-5 offset-lg-1">
+                            <div class="subtitle wow fadeInUp mb-3">Meet the Founders</div>
+                            <h2 class="wow fadeInUp">Meet the Founders Behind Soligo Air</h2>
+                            <p class="wow fadeInUp">Austin and Jaime started Soligo Air with a simple goal: give Central Florida homeowners a better HVAC experience. That means fast response, honest recommendations, clear pricing, and work done right the first time.</p>
+                            <p class="wow fadeInUp">They built the company around the kind of service people actually remember — showing up when they say they will, explaining the problem clearly, and treating every home with respect. Today, that same hands-on approach still drives every repair, tune-up, and installation Soligo Air provides.</p>
+                            <div class="spacer-10"></div>
+                            <ul class="wow fadeInUp" style="list-style:none;padding:0;margin:0 0 20px 0;">
+                                <li style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;color:#4a5568;font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Licensed and insured HVAC professionals</li>
+                                <li style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;color:#4a5568;font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Upfront pricing before work begins</li>
+                                <li style="display:flex;align-items:center;gap:8px;font-size:14px;color:#4a5568;font-weight:500;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Fast service across Central Florida</li>
+                            </ul>
+                            <a class="btn-main wow fadeInUp" href="#services">Our Services</a>
+                            &nbsp;&nbsp;
+                            <a class="btn-main bg-color-2 wow fadeInUp" href="tel:3213847868">Call Now</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="bg-color-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3 text-center">                            
+                            <div class="subtitle bg-color-2 text-light wow fadeInUp mb-3">Do you have</div>
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Any questions?</h2>
+                        </div>
+                    </div>
+
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 mb-sm-20 position-relative">
+                            <div class="relative p-4">
+                                <div class="absolute start-50px top-50px">
+                                    <i class="bg-color text-light  fs-48 p-2  id-color icofont-headphone-alt rounded-10px mb-2 wow scaleIn"></i><br>
+                                </div>
+                                <img loading="lazy" src="images/misc/1.webp" class="img-fluid rounded-20px wow zoomIn" data-wow-delay="0s" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="accordion s2 wow fadeInUp">
+                                <div class="accordion-section">
+                                    <div class="accordion-section-title" data-tab="#accordion-a1">
+                                        How quickly can you respond to an AC emergency?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a1">
+                                        <p>We offer same-day emergency dispatch and typically respond within 25-60 minutes across Central Florida.</p>
+                                    </div>
+                                    <div class="accordion-section-title" data-tab="#accordion-a2">
+                                        How much does an AC tune-up cost?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a2">
+                                        <p>Our AC tune-up is $89 flat rate — no hidden fees, no upsells. Air Care+ members get 2 included per year.</p>
+                                    </div>                                        
+                                    <div class="accordion-section-title" data-tab="#accordion-a3">
+                                        Do you offer financing?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a3">
+                                        <p>Yes, we offer 0% financing options for qualifying AC replacements. Ask us about current programs.</p>
+                                    </div>
+                                    <div class="accordion-section-title" data-tab="#accordion-a4">
+                                        What is Air Care+?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a4">
+                                        <p>Air Care+ is our $29/month maintenance plan with 2 annual tune-ups, 15% off repairs, and priority dispatch.</p>
+                                    </div>
+                                    <div class="accordion-section-title" data-tab="#accordion-a5">
+                                        Are your technicians licensed?
+                                    </div>
+                                    <div class="accordion-section-content" id="accordion-a5">
+                                        <p>Yes. FL License #CAC1823002. All technicians are EPA-certified and manufacturer-trained.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row  gx-5 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="subtitle wow fadeInUp mb-3">Our Specialty</div>
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Trusted by Central Florida Homeowners Since 2023</h2>
+                            <p class="wow fadeInUp">Soligo Air is Central Florida's trusted HVAC contractor. With EPA-certified technicians and manufacturer training across all major brands, we provide reliable AC repair, replacement, and maintenance. We're local, we're fast, and we stand behind every job we do.</p>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="row g-4">
+                                <div class="col-6">
+                                    <img loading="lazy" src="images/misc/9.webp" class="img-fluid rounded-10 mb-4 wow scaleIn" alt="">
+                                    <div class="col-12 text-center">
+                                        <div class="bg-color text-light px-4 pt30 pb10 rounded-10 wow fadeInLeft">
+                                            <div class="de_count">
+                                                <h3><span class="timer" data-to="4200" data-speed="3000"></span>+</h3>
+                                                <h4>Homes Served</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="spacer-double sm-hide"></div>
+                                    <div class="col-12 text-center">
+                                        <div class="bg-color-3 px-4 pt30 pb10 rounded-10 wow fadeInRight">
+                                            <div class="de_count">
+                                                <h3><span class="timer" data-to="300" data-speed="3000"></span>+</h3>
+                                                <h4>5-Star Reviews</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img loading="lazy" src="images/misc/8.webp" class="img-fluid rounded-10 mt-4 wow scaleIn" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
             <section class="no-top" id="areas">
                 <div class="container">
                     <div class="row g-4">
@@ -865,6 +699,8 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                     </div>
                 </div>
             </section>
+
+
 
         </div>
         <!-- content close -->
@@ -986,6 +822,22 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
       }
     });
     </script>
+
+
+            <!-- Sticky Mobile CTA -->
+            <div id="sticky-mobile-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#fff;box-shadow:0 -2px 16px rgba(0,0,0,0.1);padding:10px 16px;">
+                <div style="display:flex;gap:10px;max-width:480px;margin:0 auto;">
+                    <a href="#quote" style="flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F75600,#FF7A30);color:#fff;font-weight:800;font-size:14px;padding:14px 0;border-radius:999px;text-decoration:none;">Get Free Quote</a>
+                    <a href="tel:3213847868" style="flex:1;display:flex;align-items:center;justify-content:center;background:#002C6D;color:#fff;font-weight:700;font-size:14px;padding:14px 0;border-radius:999px;text-decoration:none;">Call Now</a>
+                </div>
+            </div>
+            <style>
+            @media(max-width:991px){#sticky-mobile-cta{display:flex!important}}
+            </style>
+            <script>
+            (function(){var el=document.getElementById('sticky-mobile-cta');if(!el)return;var shown=false;window.addEventListener('scroll',function(){if(window.scrollY>400&&!shown){el.style.display='block';shown=true}else if(window.scrollY<=400&&shown){el.style.display='none';shown=false}},{passive:true})})();
+            </script>
+
 
 </body>
 </html>
