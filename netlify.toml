@@ -1,0 +1,105 @@
+[build]
+  publish = "."
+  command = "echo 'Static site — no build step'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# ============================================================
+# SECURITY HEADERS (all pages)
+# ============================================================
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(self), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://www.googleadservices.com https://www.google.com https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; frame-src https://www.google.com https://www.facebook.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://services.leadconnectorhq.com"
+
+# ============================================================
+# CACHE HEADERS
+# ============================================================
+
+# Fonts — immutable (never change, fingerprint in filename)
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Images — long cache
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+# CSS/JS — long cache
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+# HTML — short cache, always revalidate
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# ============================================================
+# REDIRECTS
+# ============================================================
+
+# www → non-www canonical
+[[redirects]]
+  from = "https://www.soligoair.shop/*"
+  to = "https://soligoair.shop/:splat"
+  status = 301
+  force = true
+
+# Trailing slash removal
+[[redirects]]
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+
+# Pretty URLs (remove .html extension)
+[[redirects]]
+  from = "/:page.html"
+  to = "/:page"
+  status = 301
+
+# Common alias redirects
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/ac-repair"
+  to = "/service-repair"
+  status = 301
+
+[[redirects]]
+  from = "/hvac"
+  to = "/"
+  status = 301
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# ============================================================
+# NETLIFY FUNCTIONS (Phase 2)
+# ============================================================
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

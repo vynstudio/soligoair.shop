@@ -1,0 +1,26 @@
+{
+  "name": "Soligo Air — HVAC Services Orlando",
+  "short_name": "Soligo Air",
+  "description": "Fast & Reliable HVAC Services in Central Florida. AC Repair, Replacement, and Maintenance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#002C6D",
+  "theme_color": "#F75600",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-v2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "lang": "en-US"
+}

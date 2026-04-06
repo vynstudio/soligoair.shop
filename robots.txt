@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block SMS landing pages from indexing (low-quality for SEO)
+Disallow: /sms-
+
+# Block thank-you page
+Disallow: /thank-you
+
+Sitemap: https://soligoair.shop/sitemap.xml

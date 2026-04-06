@@ -9,6 +9,93 @@
     <meta content="Licensed HVAC contractor serving Central Florida. AC repair, replacement, tune-ups, and Air Care+ membership. Fast response. Upfront pricing. FL #CAC1823002." name="description" >
     <meta content="" name="keywords" >
     <meta content="" name="author" >
+
+    <!-- PWA & Mobile -->
+    <meta name="theme-color" content="#F75600">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Soligo Air">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icon-v2.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soligoair.shop/">
+    <meta property="og:title" content="AC Repair & HVAC Services Orlando | Soligo Air">
+    <meta property="og:description" content="Licensed HVAC contractor serving Central Florida. Same-day AC repair, replacement & tune-ups. Upfront pricing. FL #CAC1823002.">
+    <meta property="og:image" content="https://soligoair.shop/images/slider/1.webp">
+    <meta property="og:site_name" content="Soligo Air">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AC Repair & HVAC Services Orlando | Soligo Air">
+    <meta name="twitter:description" content="Licensed HVAC contractor serving Central Florida. Same-day service. Upfront pricing.">
+    <meta name="twitter:image" content="https://soligoair.shop/images/slider/1.webp">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://soligoair.shop/">
+
+    <!-- DNS Prefetch & Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="/images/slider/1.webp">
+    <link rel="preload" as="style" href="/css/style.css">
+
+    <!-- Schema.org LocalBusiness structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HVACBusiness",
+      "name": "Soligo Air",
+      "description": "Licensed HVAC contractor serving Central Florida. AC repair, replacement, tune-ups, and Air Care+ membership.",
+      "url": "https://soligoair.shop",
+      "telephone": "+13213847868",
+      "email": "info@soligoair.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6752 Curtis St",
+        "addressLocality": "Orlando",
+        "addressRegion": "FL",
+        "postalCode": "32807",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.5383,
+        "longitude": -81.3792
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "07:00",
+          "closes": "20:00"
+        }
+      ],
+      "areaServed": ["Orlando", "Kissimmee", "Winter Park", "Sanford", "Apopka", "Lake Mary", "Altamonte Springs", "Oviedo", "Clermont", "St. Cloud", "Davenport", "Winter Garden", "Longwood", "Celebration", "Ocoee"],
+      "hasCredential": "FL License CAC1823002",
+      "priceRange": "$$",
+      "paymentAccepted": ["Cash", "Credit Card", "Financing"],
+      "currenciesAccepted": "USD",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "300",
+        "bestRating": "5"
+      },
+      "sameAs": [
+        "https://www.facebook.com/soligo.air",
+        "https://www.instagram.com/soligoair"
+      ]
+    }
+    </script>
+
     <!-- CSS Files
     ================================================== -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
@@ -157,7 +244,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                         <div class="row g-4 slider-extra sm-hide">
                                             <div class="col-lg-4 col-md-6 mb-sm-30">
                                                 <div class="relative">
-                                                    <img src="images/icons/white/labor.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
+                                                    <img loading="lazy" src="images/icons/white/labor.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
                                                     <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
                                                     <div class="pl-100">
                                                         <h4>Licensed Technicians</h4>
@@ -168,7 +255,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                             
                                             <div class="col-lg-4 col-md-6 mb-sm-30">
                                                 <div class="relative">
-                                                    <img src="images/icons/white/calendar.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
+                                                    <img loading="lazy" src="images/icons/white/calendar.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
                                                     <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
                                                     <div class="pl-100">
                                                         <h4>Same-Day Service</h4>
@@ -179,7 +266,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                             
                                             <div class="col-lg-4 col-md-6 mb-sm-30">
                                                 <div class="relative">
-                                                    <img src="images/icons/white/best-price.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
+                                                    <img loading="lazy" src="images/icons/white/best-price.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
                                                     <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
                                                     <div class="pl-100">
                                                         <h4>0% Financing</h4>
@@ -221,7 +308,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                         <div class="row g-4 slider-extra sm-hide">
                                             <div class="col-lg-4 col-md-6 mb-sm-30">
                                                 <div class="relative">
-                                                    <img src="images/icons/white/labor.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
+                                                    <img loading="lazy" src="images/icons/white/labor.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
                                                     <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
                                                     <div class="pl-100">
                                                         <h4>Licensed Technicians</h4>
@@ -232,7 +319,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                             
                                             <div class="col-lg-4 col-md-6 mb-sm-30">
                                                 <div class="relative">
-                                                    <img src="images/icons/white/calendar.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
+                                                    <img loading="lazy" src="images/icons/white/calendar.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
                                                     <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
                                                     <div class="pl-100">
                                                         <h4>Same-Day Service</h4>
@@ -243,7 +330,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                             
                                             <div class="col-lg-4 col-md-6 mb-sm-30">
                                                 <div class="relative">
-                                                    <img src="images/icons/white/best-price.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
+                                                    <img loading="lazy" src="images/icons/white/best-price.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
                                                     <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
                                                     <div class="pl-100">
                                                         <h4>0% Financing</h4>
@@ -279,7 +366,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <img src="images/misc/handy-man.webp" class="img-fluid wow scaleIn" alt="">
+                            <img loading="lazy" src="images/misc/handy-man.webp" class="img-fluid wow scaleIn" alt="">
                         </div>
                         <div class="col-lg-5 offset-lg-1">
                             <div class="subtitle wow fadeInUp mb-3">About Soligo Air</div>
@@ -296,27 +383,27 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
 
                     <div class="row gx-5">
                         <div class="col-lg-2 col-6">
-                            <img src="images/awards/1.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".0s" alt="">
+                            <img loading="lazy" src="images/awards/1.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".0s" alt="">
                         </div>
 
                         <div class="col-lg-2 col-6">
-                            <img src="images/awards/2.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".2s" alt="">
+                            <img loading="lazy" src="images/awards/2.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".2s" alt="">
                         </div>
 
                         <div class="col-lg-2 col-6">
-                            <img src="images/awards/3.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".4s" alt="">
+                            <img loading="lazy" src="images/awards/3.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".4s" alt="">
                         </div>
 
                         <div class="col-lg-2 col-6">
-                            <img src="images/awards/4.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".6s" alt="">
+                            <img loading="lazy" src="images/awards/4.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".6s" alt="">
                         </div>
 
                         <div class="col-lg-2 col-6">
-                            <img src="images/awards/5.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".8s" alt="">
+                            <img loading="lazy" src="images/awards/5.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay=".8s" alt="">
                         </div>
 
                         <div class="col-lg-2 col-6">
-                            <img src="images/awards/6.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay="1s" alt="">
+                            <img loading="lazy" src="images/awards/6.webp" class="p-2 img-fluid wow scaleIn" data-wow-delay="1s" alt="">
                         </div>
                     </div>
                 </div>
@@ -336,8 +423,8 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                         <div class="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay="0s">
                             <div class="rounded-20px overflow-hidden">
                                 <div class="relative">
-                                    <img src="images/svg/air-conditioner-svgrepo-com.svg" class="w-70px mb20 top-30px start-30px p-2 bg-color-3 rounded-10px absolute" alt="">
-                                    <img src="images/misc/services-1.webp" class="img-fluid" alt="">
+                                    <img loading="lazy" src="images/svg/air-conditioner-svgrepo-com.svg" class="w-70px mb20 top-30px start-30px p-2 bg-color-3 rounded-10px absolute" alt="">
+                                    <img loading="lazy" src="images/misc/services-1.webp" class="img-fluid" alt="">
                                 </div>
                                 <div class="padding40 bg-color-3">
                                     <h4>AC Repair</h4>
@@ -351,8 +438,8 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                         <div class="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".2s">
                             <div class="rounded-20px overflow-hidden">
                                 <div class="relative">
-                                    <img src="images/svg/wrench-line-svgrepo-com.svg" class="w-70px mb20 top-30px start-30px p-2 bg-color-2 rounded-10px absolute" alt="">
-                                    <img src="images/misc/services-2.webp" class="img-fluid" alt="">
+                                    <img loading="lazy" src="images/svg/wrench-line-svgrepo-com.svg" class="w-70px mb20 top-30px start-30px p-2 bg-color-2 rounded-10px absolute" alt="">
+                                    <img loading="lazy" src="images/misc/services-2.webp" class="img-fluid" alt="">
                                 </div>
                                 <div class="padding40 bg-color-2 text-light">                                
                                     <h4>AC Replacement</h4>
@@ -366,8 +453,8 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                         <div class="col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".4s">
                             <div class="rounded-20px overflow-hidden">
                                 <div class="relative">
-                                    <img src="images/svg/completed-order-svgrepo-com.svg" class="w-70px mb20 top-30px start-30px p-2 bg-color rounded-10px absolute" alt="">
-                                    <img src="images/misc/services-3.webp" class="img-fluid" alt="">
+                                    <img loading="lazy" src="images/svg/completed-order-svgrepo-com.svg" class="w-70px mb20 top-30px start-30px p-2 bg-color rounded-10px absolute" alt="">
+                                    <img loading="lazy" src="images/misc/services-3.webp" class="img-fluid" alt="">
                                 </div>
                                 <div class="padding40 bg-color text-light">                                
                                     <h4>Tune-Up &amp; Maintenance</h4>
@@ -464,7 +551,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="padding60 rounded-1 sm-padding40 overflow-hidden position-relative jarallax text-light">
-                                <img src="images/background/9.webp" class="jarallax-img" alt="">
+                                <img loading="lazy" src="images/background/9.webp" class="jarallax-img" alt="">
                                 <div class="row align-items-center g-4 gx-5 relative z-index-1000">
                                     <div class="col-lg-8">
                                         <div class="subtitle s2 wow fadeInUp mb-3">HVAC Specialist</div>
@@ -472,7 +559,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                         <a class="btn-main" href="#quote">Get Free Quote</a>
                                     </div>
                                     <div class="col-lg-4 text-center">
-                                        <img src="images/team/1.webp" class="img-fluid rounded-10px wow scaleIn" alt="">
+                                        <img loading="lazy" src="images/team/1.webp" class="img-fluid rounded-10px wow scaleIn" alt="">
                                         <h5 class="mt-3 mb-0">Soligo Air Team</h5>
                                         <p class="small mb-2">Licensed HVAC Contractors</p>
                                     </div>
@@ -536,7 +623,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                         <div class="col-lg-6">
                             <div class="row g-4">
                                 <div class="col-6">
-                                    <img src="images/misc/9.webp" class="img-fluid rounded-10 mb-4 wow scaleIn" alt="">
+                                    <img loading="lazy" src="images/misc/9.webp" class="img-fluid rounded-10 mb-4 wow scaleIn" alt="">
                                     <div class="col-12 text-center">
                                         <div class="bg-color text-light px-4 pt30 pb10 rounded-10 wow fadeInLeft">
                                             <div class="de_count">
@@ -556,7 +643,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                             </div>
                                         </div>
                                     </div>
-                                    <img src="images/misc/8.webp" class="img-fluid rounded-10 mt-4 wow scaleIn" alt="">
+                                    <img loading="lazy" src="images/misc/8.webp" class="img-fluid rounded-10 mt-4 wow scaleIn" alt="">
                                 </div>
                             </div>
                         </div>
@@ -584,7 +671,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <blockquote>
                                         <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
                                         <div class="de_testi_by">
-                                            <img class="bg-white p-2 circle" alt="" src="images/testimonial/1.jpg"> <div>Maria G.<span>Orlando, FL</span></div>
+                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/1.jpg"> <div>Maria G.<span>Orlando, FL</span></div>
                                         </div>
                                         <p>"Soligo Air came out same day when my AC stopped working in July. Fixed it in under an hour. Honest pricing, no upsells. Will use them again."
                                         </p>
@@ -605,7 +692,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <blockquote>
                                         <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
                                         <div class="de_testi_by">
-                                            <img class="bg-white p-2 circle" alt="" src="images/testimonial/2.jpg"> <div>James T.<span>Kissimmee, FL</span></div>
+                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/2.jpg"> <div>James T.<span>Kissimmee, FL</span></div>
                                         </div>
                                         <p>"Best HVAC company I've used. The technician explained everything clearly and the price matched exactly what they quoted. 100% recommend."</p>
                                         <div class="de-rating-ext">
@@ -625,7 +712,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <blockquote>
                                         <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
                                         <div class="de_testi_by">
-                                            <img class="bg-white p-2 circle" alt="" src="images/testimonial/3.jpg"> <div>Rosa M.<span>Winter Park, FL</span></div>
+                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/3.jpg"> <div>Rosa M.<span>Winter Park, FL</span></div>
                                         </div>
                                         <p>"Signed up for Air Care+ and it's been great. Two tune-ups a year plus priority service for $29/month. My bill went down noticeably."</p>
                                         <div class="de-rating-ext">
@@ -645,7 +732,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <blockquote>
                                         <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
                                         <div class="de_testi_by">
-                                            <img class="bg-white p-2 circle" alt="" src="images/testimonial/4.jpg"> <div>Alex P.<span>Sanford, FL</span></div>
+                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/4.jpg"> <div>Alex P.<span>Sanford, FL</span></div>
                                         </div>
                                         <p>"From the initial call to the final install, their team demonstrated professionalism, expertise, and a commitment to excellence. Our new system is running flawlessly."</p>
                                         <div class="de-rating-ext">
@@ -665,7 +752,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <blockquote>
                                         <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
                                         <div class="de_testi_by">
-                                            <img class="bg-white p-2 circle" alt="" src="images/testimonial/5.jpg"> <div>Carlos R.<span>Apopka, FL</span></div>
+                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/5.jpg"> <div>Carlos R.<span>Apopka, FL</span></div>
                                         </div>
                                         <p>"Their technicians quickly diagnosed the problem and recommended a cost-effective solution. Thanks to their expertise, our home is now consistently comfortable."</p>
                                         <div class="de-rating-ext">
@@ -685,7 +772,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <blockquote>
                                         <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
                                         <div class="de_testi_by">
-                                            <img class="bg-white p-2 circle" alt="" src="images/testimonial/6.jpg"> <div>Edward B.<span>Lake Mary, FL</span></div>
+                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/6.jpg"> <div>Edward B.<span>Lake Mary, FL</span></div>
                                         </div>
                                         <p>"Their attention to detail, dedication to customer satisfaction, and commitment to quality set them apart. Soligo Air is the only HVAC company I'll call."</p>
                                         <div class="de-rating-ext">
@@ -705,7 +792,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <blockquote>
                                         <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
                                         <div class="de_testi_by">
-                                            <img class="bg-white p-2 circle" alt="" src="images/testimonial/7.jpg"> <div>Daniel H.<span>Oviedo, FL</span></div>
+                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/7.jpg"> <div>Daniel H.<span>Oviedo, FL</span></div>
                                         </div>
                                         <p>"From start to finish, their team provided top-notch service — installation was precise, and everything was in perfect working order before they left."</p>
                                         <div class="de-rating-ext">
@@ -725,7 +812,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <blockquote>
                                         <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
                                         <div class="de_testi_by">
-                                            <img class="bg-white p-2 circle" alt="" src="images/testimonial/8.jpg"> <div>Bryan G.<span>Clermont, FL</span></div>
+                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/8.jpg"> <div>Bryan G.<span>Clermont, FL</span></div>
                                         </div>
                                         <p>"Soligo Air technicians are knowledgeable, courteous, and always go the extra mile. Whether it's a routine tune-up or a major repair, they deliver every time."</p>
                                         <div class="de-rating-ext">
@@ -760,7 +847,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                 <div class="absolute start-50px top-50px">
                                     <i class="bg-color text-light  fs-48 p-2  id-color icofont-headphone-alt rounded-10px mb-2 wow scaleIn"></i><br>
                                 </div>
-                                <img src="images/misc/1.webp" class="img-fluid rounded-20px wow zoomIn" data-wow-delay="0s" alt="">
+                                <img loading="lazy" src="images/misc/1.webp" class="img-fluid rounded-20px wow zoomIn" data-wow-delay="0s" alt="">
                             </div>
                         </div>
 
@@ -822,7 +909,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                             <div class="d-tagline">
                                                 <span>tips &amp; tricks</span>
                                             </div>
-                                            <img alt="" src="images/news/1.webp" class="lazy">
+                                            <img loading="lazy" alt="" src="images/news/1.webp" class="lazy">
                                         </div>
                                         <div class="post-text padding40 pt-2 h-100">
                                             <h4><a href="blog-single.html">Tips for Optimizing Your AC System in Florida Heat</a></h4>
@@ -840,7 +927,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                             <div class="d-tagline">
                                                 <span>tips &amp; tricks</span>
                                             </div>
-                                            <img alt="" src="images/news/2.webp" class="lazy">
+                                            <img loading="lazy" alt="" src="images/news/2.webp" class="lazy">
                                         </div>
                                         <div class="post-text padding40 pt-2 h-100">
                                             <h4><a href="blog-single.html">When to Repair vs. Replace Your AC System</a></h4>
@@ -858,7 +945,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                             <div class="d-tagline">
                                                 <span>tips &amp; tricks</span>
                                             </div>
-                                            <img alt="" src="images/news/3.webp" class="lazy">
+                                            <img loading="lazy" alt="" src="images/news/3.webp" class="lazy">
                                         </div>
                                         <div class="post-text padding40 pt-2 h-100">
                                             <h4><a href="blog-single.html">How Indoor Air Quality Affects Your Family's Health</a></h4>
@@ -881,7 +968,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                                     <div class="col-lg-6">
                                         <div class="h-100 padding60 sm-padding40 overflow-hidden position-relative text-light jarallax">
                                             <div class="spacer-double"></div>
-                                            <img src="images/background/3.webp" class="jarallax-img" alt="">
+                                            <img loading="lazy" src="images/background/3.webp" class="jarallax-img" alt="">
                                             <div class="spacer-double"></div>
                                         </div>
                                     </div>
@@ -910,12 +997,12 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
 
                         <div class="col-md-12 wow fadeInUp">
                             <div id="owl-logo" class="logo-carousel no-alpha owl-carousel owl-theme">
-                                <img src="images/logo/1.webp" class="img-fluid px-4" alt="">
-                                <img src="images/logo/2.webp" class="img-fluid px-4" alt="">
-                                <img src="images/logo/3.webp" class="img-fluid px-4" alt="">
-                                <img src="images/logo/4.webp" class="img-fluid px-4" alt="">
-                                <img src="images/logo/5.webp" class="img-fluid px-4" alt="">
-                                <img src="images/logo/6.webp" class="img-fluid px-4" alt="">
+                                <img loading="lazy" src="images/logo/1.webp" class="img-fluid px-4" alt="">
+                                <img loading="lazy" src="images/logo/2.webp" class="img-fluid px-4" alt="">
+                                <img loading="lazy" src="images/logo/3.webp" class="img-fluid px-4" alt="">
+                                <img loading="lazy" src="images/logo/4.webp" class="img-fluid px-4" alt="">
+                                <img loading="lazy" src="images/logo/5.webp" class="img-fluid px-4" alt="">
+                                <img loading="lazy" src="images/logo/6.webp" class="img-fluid px-4" alt="">
                             </div>
                         </div>
                     </div>
@@ -944,7 +1031,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
             <div class="container">
                 <div class="row gx-5">
                     <div class="col-lg-4 col-sm-6">
-                        <img src="icon-v2.png" alt="Soligo Air" style="height:42px"> <span style="font-size:1.2rem;font-weight:800;color:#fff;vertical-align:middle;margin-left:8px;">SOLIGO AIR</span>
+                        <img loading="lazy" src="icon-v2.png" alt="Soligo Air" style="height:42px"> <span style="font-size:1.2rem;font-weight:800;color:#fff;vertical-align:middle;margin-left:8px;">SOLIGO AIR</span>
                         <div class="spacer-20"></div>
                         <p>Licensed HVAC contractor serving Orlando and Central Florida since 2023. FL Lic. CAC1823002.</p>
                         <p>Fast &amp; Reliable HVAC Services in Central Florida</p>
@@ -1030,11 +1117,11 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
     
     <!-- Javascript Files
     ================================================== -->
-    <script src="js/plugins.js"></script>
-    <script src="js/designesia.js"></script>
-    <script src="js/swiper.js"></script>
-    <script src="js/custom-marquee.js"></script>
-    <script src="js/custom-swiper-1.js"></script>
+    <script src="js/plugins.js" defer></script>
+    <script src="js/designesia.js" defer></script>
+    <script src="js/swiper.js" defer></script>
+    <script src="js/custom-marquee.js" defer></script>
+    <script src="js/custom-swiper-1.js" defer></script>
 
 </body>
 </html>
