@@ -190,55 +190,38 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
 
             <section class="no-top no-bottom position-relative overflow-hidden" id="hero-section">
                 <style>
-                #hero-section{min-height:75vh;display:flex;align-items:flex-end;position:relative;background:#f5f0ea}
+                #hero-section{min-height:80vh;display:flex;align-items:center;justify-content:center;position:relative;background:#f5f0ea}
                 #hero-section .hero-bg{position:absolute;inset:0;z-index:0}
                 #hero-section .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
-                #hero-section .hero-content{position:relative;z-index:2;padding:120px 0 48px;width:100%}
-                .hero-text{max-width:580px}
-                .hero-text .hero-eyebrow{font-size:12px;font-weight:700;color:#F75600;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;text-shadow:0 1px 8px rgba(255,255,255,0.7)}
-                .hero-text h1{font-size:2.4rem;font-weight:900;color:#002C6D;line-height:1.14;margin-bottom:14px;text-shadow:0 1px 12px rgba(255,255,255,0.8),0 0 40px rgba(255,255,255,0.5)}
-                .hero-text .hero-body{font-size:14.5px;line-height:1.65;color:#1a2b4a;margin-bottom:16px;text-shadow:0 1px 10px rgba(255,255,255,0.7)}
-                .hero-text .hero-trust{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px;color:#3d4f6a;font-weight:600;margin-bottom:24px;text-shadow:0 1px 8px rgba(255,255,255,0.6)}
-                .hero-text .hero-trust .dot{color:#F75600;margin:0 4px;font-size:10px}
-                .hero-text .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-                .hero-pill-orange{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;font-weight:800;font-size:15px;padding:14px 32px;border-radius:999px;text-decoration:none;border:none;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 16px rgba(247,86,0,0.25)}
-                .hero-pill-orange:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(247,86,0,0.35);color:#fff}
-                .hero-pill-white{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.85);color:#002C6D;font-weight:700;font-size:15px;padding:14px 28px;border-radius:999px;text-decoration:none;border:none;transition:all 0.15s;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
-                .hero-pill-white:hover{background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.12);color:#002C6D}
+                #hero-section .hero-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:60px}
+                .hero-pill-orange{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;font-weight:800;font-size:15px;padding:15px 36px;border-radius:999px;text-decoration:none;border:none;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 18px rgba(247,86,0,0.3)}
+                .hero-pill-orange:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(247,86,0,0.4);color:#fff}
+                .hero-pill-white{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.88);color:#002C6D;font-weight:700;font-size:15px;padding:15px 32px;border-radius:999px;text-decoration:none;border:none;transition:all 0.15s;box-shadow:0 2px 14px rgba(0,0,0,0.1)}
+                .hero-pill-white:hover{background:#fff;box-shadow:0 4px 22px rgba(0,0,0,0.14);color:#002C6D}
+                .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;cursor:pointer}
+                .hero-scroll svg{animation:hero-bounce 2s ease-in-out infinite;opacity:0.7;filter:drop-shadow(0 1px 4px rgba(0,0,0,0.15))}
+                @keyframes hero-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
                 @media(max-width:991px){
-                    #hero-section{min-height:auto;align-items:center}
-                    #hero-section .hero-content{padding:100px 0 40px}
-                    #hero-section .hero-bg img{object-position:55% 35%}
-                    .hero-text{max-width:100%}
-                    .hero-text h1{font-size:1.85rem}
-                    .hero-text .hero-body{font-size:14px}
+                    #hero-section{min-height:70vh}
+                    #hero-section .hero-center{padding-top:40px}
                 }
                 @media(max-width:600px){
-                    #hero-section .hero-content{padding:90px 0 32px}
-                    .hero-text h1{font-size:1.55rem}
-                    .hero-pill-orange,.hero-pill-white{width:100%;justify-content:center}
+                    #hero-section{min-height:65vh}
+                    .hero-pill-orange,.hero-pill-white{min-width:220px;justify-content:center}
+                    .hero-scroll{bottom:20px}
                 }
                 </style>
 
                 <div class="hero-bg">
                     <img src="images/slider/soligoherofinal.webp" alt="Family enjoying cool air in a bright Florida home with mini-split AC">
                 </div>
-                <div class="hero-content">
-                    <div class="container">
-                        <div class="hero-text">
-                            <div class="hero-eyebrow">Serving Central Florida Since 2023</div>
-                            <h1>AC Repair &amp; HVAC Services in Orlando, FL</h1>
-                            <p class="hero-body">Fast response, honest pricing, and licensed technicians for repairs, replacements, tune-ups, and indoor comfort.</p>
-                            <div class="hero-trust">
-                                Same-day service <span class="dot">&bull;</span> Upfront pricing <span class="dot">&bull;</span> 0% financing available
-                            </div>
-                            <div class="hero-ctas">
-                                <a class="hero-pill-orange" href="#quote">Get Free Quote</a>
-                                <a class="hero-pill-white" href="tel:3213847868">Tap to Call (321) 384-7868</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="hero-center">
+                    <a class="hero-pill-orange" href="#quote">Get Free Quote</a>
+                    <a class="hero-pill-white" href="tel:3213847868">Tap to Call (321) 384-7868</a>
                 </div>
+                <a class="hero-scroll" href="#about" onclick="event.preventDefault();document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </a>
             </section>
 
             <section class="pt50" id="about">
