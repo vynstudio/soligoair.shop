@@ -44,7 +44,8 @@
     <link rel="dns-prefetch" href="https://connect.facebook.net">
 
     <!-- Preload critical assets -->
-    <link rel="preload" as="image" href="/images/slider/soligohero11.webp">
+    <link rel="preload" as="video" href="/videos/hero-home.mp4">
+    <link rel="preload" as="image" href="/images/slider/hero-home-poster.webp">
     <link rel="preload" as="style" href="/css/style.css">
 
     <!-- Schema.org LocalBusiness structured data -->
@@ -96,17 +97,16 @@
     }
     </script>
 
-    <!-- CSS Files
-    ================================================== -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
-    <link href="css/plugins.css" rel="stylesheet" type="text/css" >
-    <link href="css/style.css" rel="stylesheet" type="text/css" >
-    <link href="css/coloring.css" rel="stylesheet" type="text/css" >
-    <!-- color scheme -->
-    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
-    <link href="css/colors/soligo.css" rel="stylesheet" type="text/css" >
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS — critical path -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/coloring.css" rel="stylesheet">
+    <link href="css/colors/scheme-01.css" rel="stylesheet">
+    <!-- Google Fonts — display swap for fast render -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
 * { font-family: 'Poppins', sans-serif !important; }
@@ -133,8 +133,6 @@ html, body { overflow-x: hidden; overflow-y: auto; }
         </div>
         <div class="scrollbar-v show-on-scroll"></div>
         
-        <!-- page preloader begin -->
-        <div id="de-loader"></div>
         <!-- page preloader close -->
 
         <!-- header begin -->
