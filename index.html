@@ -190,39 +190,38 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
 
             <section class="no-top no-bottom position-relative overflow-hidden" id="hero-section">
                 <style>
-                #hero-section{min-height:78vh;display:flex;align-items:center;position:relative;background:#eaf0f9}
+                #hero-section{min-height:75vh;display:flex;align-items:flex-end;position:relative;background:#f5f0ea}
                 #hero-section .hero-bg{position:absolute;inset:0;z-index:0}
-                #hero-section .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center center}
-                #hero-section .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(108deg,rgba(234,240,249,0.88) 0%,rgba(240,245,255,0.72) 28%,rgba(248,250,255,0.35) 50%,rgba(255,255,255,0.08) 68%,transparent 82%)}
-                #hero-section .hero-content{position:relative;z-index:2;padding:120px 0 60px}
-                .hero-text{max-width:540px}
-                .hero-text .hero-eyebrow{font-size:13px;font-weight:700;color:#F75600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
-                .hero-text h1{font-size:2.5rem;font-weight:900;color:#002C6D;line-height:1.12;margin-bottom:18px}
-                .hero-text .hero-body{font-size:15px;line-height:1.7;color:#3d4f6a;margin-bottom:20px}
-                .hero-text .hero-trust{display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:13px;color:#5a6d87;font-weight:600;margin-bottom:28px}
-                .hero-text .hero-trust span{display:flex;align-items:center;gap:5px;white-space:nowrap}
-                .hero-text .hero-trust svg{width:15px;height:15px;flex-shrink:0}
+                #hero-section .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+                #hero-section .hero-content{position:relative;z-index:2;padding:120px 0 48px;width:100%}
+                .hero-text{max-width:580px}
+                .hero-text .hero-eyebrow{font-size:12px;font-weight:700;color:#F75600;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;text-shadow:0 1px 8px rgba(255,255,255,0.7)}
+                .hero-text h1{font-size:2.4rem;font-weight:900;color:#002C6D;line-height:1.14;margin-bottom:14px;text-shadow:0 1px 12px rgba(255,255,255,0.8),0 0 40px rgba(255,255,255,0.5)}
+                .hero-text .hero-body{font-size:14.5px;line-height:1.65;color:#1a2b4a;margin-bottom:16px;text-shadow:0 1px 10px rgba(255,255,255,0.7)}
+                .hero-text .hero-trust{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13px;color:#3d4f6a;font-weight:600;margin-bottom:24px;text-shadow:0 1px 8px rgba(255,255,255,0.6)}
+                .hero-text .hero-trust .dot{color:#F75600;margin:0 4px;font-size:10px}
                 .hero-text .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-                .hero-cta-primary{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;font-weight:800;font-size:15px;padding:15px 32px;border-radius:10px;text-decoration:none;border:none;transition:transform 0.15s,box-shadow 0.15s}
-                .hero-cta-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(247,86,0,0.3);color:#fff}
-                .hero-cta-secondary{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.55);color:#002C6D;font-weight:700;font-size:15px;padding:15px 28px;border-radius:10px;text-decoration:none;border:1px solid rgba(0,44,109,0.12);transition:all 0.15s}
-                .hero-cta-secondary:hover{background:rgba(255,255,255,0.8);border-color:rgba(0,44,109,0.2)}
+                .hero-pill-orange{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;font-weight:800;font-size:15px;padding:14px 32px;border-radius:999px;text-decoration:none;border:none;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 16px rgba(247,86,0,0.25)}
+                .hero-pill-orange:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(247,86,0,0.35);color:#fff}
+                .hero-pill-white{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.85);color:#002C6D;font-weight:700;font-size:15px;padding:14px 28px;border-radius:999px;text-decoration:none;border:none;transition:all 0.15s;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+                .hero-pill-white:hover{background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.12);color:#002C6D}
                 @media(max-width:991px){
-                    #hero-section{min-height:auto}
-                    #hero-section .hero-content{padding:100px 0 48px}
-                    #hero-section .hero-bg img{object-position:60% center}
-                    #hero-section .hero-bg::after{background:linear-gradient(180deg,rgba(234,240,249,0.92) 0%,rgba(240,245,255,0.82) 45%,rgba(255,255,255,0.35) 80%,transparent 100%)}
+                    #hero-section{min-height:auto;align-items:center}
+                    #hero-section .hero-content{padding:100px 0 40px}
+                    #hero-section .hero-bg img{object-position:55% 35%}
                     .hero-text{max-width:100%}
-                    .hero-text h1{font-size:1.9rem}
+                    .hero-text h1{font-size:1.85rem}
+                    .hero-text .hero-body{font-size:14px}
                 }
                 @media(max-width:600px){
-                    .hero-text h1{font-size:1.6rem}
-                    .hero-cta-primary,.hero-cta-secondary{width:100%;justify-content:center}
+                    #hero-section .hero-content{padding:90px 0 32px}
+                    .hero-text h1{font-size:1.55rem}
+                    .hero-pill-orange,.hero-pill-white{width:100%;justify-content:center}
                 }
                 </style>
 
                 <div class="hero-bg">
-                    <img src="images/slider/herosoligo.webp" alt="Family enjoying cool air from a mini-split AC in a bright Florida kitchen">
+                    <img src="images/slider/soligoherofinal.webp" alt="Family enjoying cool air in a bright Florida home with mini-split AC">
                 </div>
                 <div class="hero-content">
                     <div class="container">
@@ -231,13 +230,11 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                             <h1>AC Repair &amp; HVAC Services in Orlando, FL</h1>
                             <p class="hero-body">Fast response, honest pricing, and licensed technicians for repairs, replacements, tune-ups, and indoor comfort.</p>
                             <div class="hero-trust">
-                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Same-day service</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Upfront pricing</span>
-                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 0% financing</span>
+                                Same-day service <span class="dot">&bull;</span> Upfront pricing <span class="dot">&bull;</span> 0% financing available
                             </div>
                             <div class="hero-ctas">
-                                <a class="hero-cta-primary" href="#quote">Get Free Quote</a>
-                                <a class="hero-cta-secondary" href="tel:3213847868">Tap to Call (321) 384-7868</a>
+                                <a class="hero-pill-orange" href="#quote">Get Free Quote</a>
+                                <a class="hero-pill-white" href="tel:3213847868">Tap to Call (321) 384-7868</a>
                             </div>
                         </div>
                     </div>
