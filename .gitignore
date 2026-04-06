@@ -29,6 +29,9 @@ npm-debug.log*
 dist/
 build/
 
+# Original unoptimized media (kept locally, not deployed)
+assets/
+
 # Secrets
 .mcp.json
 .claude/
