@@ -663,183 +663,128 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                 </div>
             </section>
 
-            <section class="no-top text-center" id="reviews">
+            <section class="no-top" id="reviews">
+                <style>
+                .rf-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+                .rf-header-left h2{font-size:2rem;margin-bottom:4px}
+                .rf-header-left .aggregate-row{display:flex;align-items:center;gap:12px;margin-top:8px}
+                .rf-header-left .big-rating{font-size:42px;font-weight:900;color:#002C6D;line-height:1}
+                .rf-header-left .rating-detail{display:flex;flex-direction:column}
+                .rf-header-left .rf-stars{color:#FBBC04;font-size:22px;letter-spacing:2px}
+                .rf-header-left .rating-meta{font-size:13px;color:#8a96aa}
+                .rf-header-right .g-badge{display:inline-flex;align-items:center;gap:8px;background:#f8f9fd;border:1px solid #e8ecf2;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;color:#555}
+                .rf-header-right .g-badge svg{width:20px;height:20px}
+                .rf-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+                @media(max-width:900px){.rf-layout{grid-template-columns:1fr}}
+                .rf-featured{background:linear-gradient(160deg,#001836 0%,#002C6D 100%);border-radius:18px;padding:40px;color:#fff;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+                .rf-featured::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:rgba(247,86,0,0.12);border-radius:50%}
+                .rf-featured .rf-stars{color:#FBBC04;font-size:20px;letter-spacing:2px;margin-bottom:20px}
+                .rf-featured .rf-review-text{font-size:18px;line-height:1.7;font-weight:500;margin-bottom:28px}
+                .rf-featured .rf-reviewer{display:flex;align-items:center;gap:14px}
+                .rf-featured .rf-reviewer .rf-initial{width:48px;height:48px;border-radius:50%;background:#F75600;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+                .rf-featured .rf-reviewer .rf-name{font-weight:700;font-size:16px}
+                .rf-featured .rf-reviewer .rf-city{font-size:13px;color:rgba(255,255,255,0.6)}
+                .rf-featured .rf-reviewer .rf-date{font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px}
+                .rf-featured .rf-verified{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:rgba(255,255,255,0.5);margin-top:20px}
+                .rf-featured .rf-verified svg{width:14px;height:14px}
+                .rf-supporting{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+                @media(max-width:600px){.rf-supporting{grid-template-columns:1fr}}
+                .rf-card{background:#f8f9fd;border:1px solid #eef1f6;border-radius:14px;padding:22px;text-align:left;transition:box-shadow 0.2s}
+                .rf-card:hover{box-shadow:0 4px 16px rgba(0,44,109,0.07);background:#fff}
+                .rf-card .rf-stars{color:#FBBC04;font-size:12px;letter-spacing:1px;margin-bottom:8px}
+                .rf-card .rf-review-text{font-size:13px;line-height:1.6;color:#4a5568;margin-bottom:14px}
+                .rf-card .rf-reviewer{display:flex;align-items:center;gap:10px}
+                .rf-card .rf-reviewer .rf-initial{width:32px;height:32px;border-radius:50%;background:#002C6D;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+                .rf-card .rf-reviewer .rf-name{font-weight:700;color:#1a2b4a;font-size:13px}
+                .rf-card .rf-reviewer .rf-meta{font-size:11px;color:#a0aab8}
+                .rf-cta{text-align:center;margin-top:40px}
+                .rf-cta a{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;font-weight:700;font-size:15px;padding:14px 32px;border-radius:10px;text-decoration:none;border:none;transition:transform 0.2s,box-shadow 0.2s}
+                .rf-cta a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(247,86,0,0.3)}
+                </style>
+
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 offset-lg-3 text-center">
-                            <div class="subtitle wow fadeInUp mb-3">What Our Customers Say</div>
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">Trusted by Central Florida Homeowners</h2>
-                            <p class="lead wow fadeInUp">Real reviews from real homeowners across Orlando, Kissimmee, Winter Park, and beyond.</p>
-                            <div class="spacer-single"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="owl-carousel owl-theme wow fadeInUp" id="testimonial-carousel">
-                            <div class="item">
-                                <div class="de_testi s2">
-                                    <blockquote>
-                                        <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
-                                        <div class="de_testi_by">
-                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/1.jpg"> <div>Maria G.<span>Orlando, FL</span></div>
-                                        </div>
-                                        <p>"Soligo Air came out same day when my AC stopped working in July. Fixed it in under an hour. Honest pricing, no upsells. Will use them again."
-                                        </p>
-                                        <div class="de-rating-ext">
-                                            <span class="d-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="de_testi s2">
-                                    <blockquote>
-                                        <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
-                                        <div class="de_testi_by">
-                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/2.jpg"> <div>James T.<span>Kissimmee, FL</span></div>
-                                        </div>
-                                        <p>"Best HVAC company I've used. The technician explained everything clearly and the price matched exactly what they quoted. 100% recommend."</p>
-                                        <div class="de-rating-ext">
-                                            <span class="d-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="de_testi s2">
-                                    <blockquote>
-                                        <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
-                                        <div class="de_testi_by">
-                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/3.jpg"> <div>Rosa M.<span>Winter Park, FL</span></div>
-                                        </div>
-                                        <p>"Signed up for Air Care+ and it's been great. Two tune-ups a year plus priority service for $29/month. My bill went down noticeably."</p>
-                                        <div class="de-rating-ext">
-                                            <span class="d-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="de_testi s2">
-                                    <blockquote>
-                                        <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
-                                        <div class="de_testi_by">
-                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/4.jpg"> <div>Alex P.<span>Sanford, FL</span></div>
-                                        </div>
-                                        <p>"From the initial call to the final install, their team demonstrated professionalism, expertise, and a commitment to excellence. Our new system is running flawlessly."</p>
-                                        <div class="de-rating-ext">
-                                            <span class="d-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="de_testi s2">
-                                    <blockquote>
-                                        <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
-                                        <div class="de_testi_by">
-                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/5.jpg"> <div>Carlos R.<span>Apopka, FL</span></div>
-                                        </div>
-                                        <p>"Their technicians quickly diagnosed the problem and recommended a cost-effective solution. Thanks to their expertise, our home is now consistently comfortable."</p>
-                                        <div class="de-rating-ext">
-                                            <span class="d-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="de_testi s2">
-                                    <blockquote>
-                                        <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
-                                        <div class="de_testi_by">
-                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/6.jpg"> <div>Edward B.<span>Lake Mary, FL</span></div>
-                                        </div>
-                                        <p>"Their attention to detail, dedication to customer satisfaction, and commitment to quality set them apart. Soligo Air is the only HVAC company I'll call."</p>
-                                        <div class="de-rating-ext">
-                                            <span class="d-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="de_testi s2">
-                                    <blockquote>
-                                        <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
-                                        <div class="de_testi_by">
-                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/7.jpg"> <div>Daniel H.<span>Oviedo, FL</span></div>
-                                        </div>
-                                        <p>"From start to finish, their team provided top-notch service — installation was precise, and everything was in perfect working order before they left."</p>
-                                        <div class="de-rating-ext">
-                                            <span class="d-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="de_testi s2">
-                                    <blockquote>
-                                        <i class="icofont-quote-left absolute start-30px top-30px id-color-2"></i>
-                                        <div class="de_testi_by">
-                                            <img loading="lazy" class="bg-white p-2 circle" alt="" src="images/testimonial/8.jpg"> <div>Bryan G.<span>Clermont, FL</span></div>
-                                        </div>
-                                        <p>"Soligo Air technicians are knowledgeable, courteous, and always go the extra mile. Whether it's a routine tune-up or a major repair, they deliver every time."</p>
-                                        <div class="de-rating-ext">
-                                            <span class="d-stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </blockquote>
+
+                    <div class="rf-header">
+                        <div class="rf-header-left">
+                            <h2>What Homeowners Are Saying</h2>
+                            <div class="aggregate-row">
+                                <span class="big-rating">5.0</span>
+                                <div class="rating-detail">
+                                    <span class="rf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    <span class="rating-meta">Based on 300+ verified reviews</span>
                                 </div>
                             </div>
                         </div>
+                        <div class="rf-header-right">
+                            <div class="g-badge">
+                                <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 0 0 1 12c0 1.77.42 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                                Google Reviews
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="rf-layout">
+
+                        <div class="rf-featured">
+                            <div class="rf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                            <div class="rf-review-text">"Soligo Air came out same day when my AC stopped working in July. Fixed it in under an hour. Honest pricing, no upsells. Will use them again."</div>
+                            <div class="rf-reviewer">
+                                <div class="rf-initial">M</div>
+                                <div>
+                                    <div class="rf-name">Maria G.</div>
+                                    <div class="rf-city">Orlando, FL</div>
+                                    <div class="rf-date">3 weeks ago</div>
+                                </div>
+                            </div>
+                            <div class="rf-verified"><svg viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Verified Google Review</div>
+                        </div>
+
+                        <div class="rf-supporting">
+
+                            <div class="rf-card">
+                                <div class="rf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <div class="rf-review-text">"Best HVAC company I've used. The technician explained everything clearly and the price matched exactly what they quoted."</div>
+                                <div class="rf-reviewer">
+                                    <div class="rf-initial">J</div>
+                                    <div><span class="rf-name">James T.</span><br><span class="rf-meta">Kissimmee, FL &middot; 1 month ago</span></div>
+                                </div>
+                            </div>
+
+                            <div class="rf-card">
+                                <div class="rf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <div class="rf-review-text">"Signed up for Air Care+ and it's been great. Two tune-ups a year plus priority service for $29/month. My bill went down noticeably."</div>
+                                <div class="rf-reviewer">
+                                    <div class="rf-initial" style="background:#F75600;">R</div>
+                                    <div><span class="rf-name">Rosa M.</span><br><span class="rf-meta">Winter Park, FL &middot; 2 months ago</span></div>
+                                </div>
+                            </div>
+
+                            <div class="rf-card">
+                                <div class="rf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <div class="rf-review-text">"From the initial call to the final install, professionalism, expertise, and a commitment to excellence. Our new system is running flawlessly."</div>
+                                <div class="rf-reviewer">
+                                    <div class="rf-initial" style="background:#F75600;">A</div>
+                                    <div><span class="rf-name">Alex P.</span><br><span class="rf-meta">Sanford, FL &middot; 2 months ago</span></div>
+                                </div>
+                            </div>
+
+                            <div class="rf-card">
+                                <div class="rf-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <div class="rf-review-text">"Their technicians quickly diagnosed the problem and recommended a cost-effective solution. Our home is now consistently comfortable."</div>
+                                <div class="rf-reviewer">
+                                    <div class="rf-initial">C</div>
+                                    <div><span class="rf-name">Carlos R.</span><br><span class="rf-meta">Apopka, FL &middot; 3 months ago</span></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="rf-cta">
+                        <a href="https://g.page/soligoair/review" target="_blank" rel="noopener">Read All 300+ Reviews on Google</a>
+                    </div>
+
                 </div>
             </section>
 
