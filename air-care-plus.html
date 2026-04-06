@@ -11,13 +11,12 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://soligoair.shop/air-care-plus">
     <meta property="og:title" content="Air Care+ Membership — $29/Month | Soligo Air">
-    <meta property="og:description" content="Join Air Care+ for $29/month. 2 annual tune-ups, 15% off repairs, priority dispatch, no overtime charges. Soligo Air Orlando.">
-    <meta property="og:image" content="https://soligoair.shop/images/slider/1.webp">
+    <meta property="og:description" content="Join Air Care+ for $29/month. 2 annual tune-ups, 15% off repairs, priority dispatch. Soligo Air Orlando.">
+    <meta property="og:image" content="https://soligoair.shop/images/slider/hero-aircare-poster.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
     <link href="css/plugins.css" rel="stylesheet" type="text/css">
-    <link href="css/swiper.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/coloring.css" rel="stylesheet" type="text/css">
     <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
@@ -34,6 +33,55 @@ body { color: #6B7A99; background: #F8F9FD; }
 .bg-color-2 { background: linear-gradient(135deg, #F75600 0%, #FF7A30 100%) !important; }
 .bg-color-3 { background: linear-gradient(160deg, #F0F4FF 0%, #F8F9FD 100%) !important; }
 footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !important; }
+
+/* Hero */
+.sp-hero{position:relative;min-height:65vh;display:flex;align-items:center;overflow:hidden;background:#001530}
+.sp-hero video,.sp-hero .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sp-hero .hero-poster{display:none}
+.sp-hero::after{content:'';position:absolute;inset:0;background:rgba(0,20,50,0.4);z-index:1}
+.sp-hero .hero-inner{position:relative;z-index:2;text-align:center;width:100%;padding:100px 20px 48px}
+.sp-hero h1{font-size:2.2rem;font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;text-shadow:0 2px 16px rgba(0,0,0,0.3);max-width:700px;margin-left:auto;margin-right:auto}
+.sp-hero .hero-sub{font-size:15px;color:rgba(255,255,255,0.88);font-weight:500;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.25);max-width:520px;margin-left:auto;margin-right:auto}
+.sp-hero .hero-ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.sp-pill-primary{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F75600,#FF7A30);color:#fff;font-weight:800;font-size:15px;padding:15px 36px;border-radius:999px;text-decoration:none;border:none;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 18px rgba(247,86,0,.3)}
+.sp-pill-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(247,86,0,.4);color:#fff}
+.sp-pill-secondary{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.9);color:#002C6D;font-weight:700;font-size:15px;padding:15px 32px;border-radius:999px;text-decoration:none;border:none;transition:all .15s;box-shadow:0 2px 14px rgba(0,0,0,.1)}
+.sp-pill-secondary:hover{background:#fff;box-shadow:0 4px 22px rgba(0,0,0,.14);color:#002C6D}
+@media(max-width:768px){
+    .sp-hero video{display:none}
+    .sp-hero .hero-poster{display:block}
+    .sp-hero{min-height:55vh}
+    .sp-hero h1{font-size:1.6rem}
+    .sp-pill-primary,.sp-pill-secondary{padding:13px 28px;font-size:14px}
+}
+
+/* Trust strip */
+.sp-trust{background:#002C6D;padding:14px 0}
+.sp-trust-inner{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;color:#fff;font-size:13px;font-weight:600}
+.sp-trust-inner span{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.sp-trust-inner svg{width:15px;height:15px;flex-shrink:0}
+
+/* Cards */
+.sp-card{background:#fff;border:1px solid #eef1f6;border-radius:16px;padding:28px;transition:box-shadow .2s}
+.sp-card:hover{box-shadow:0 6px 24px rgba(0,44,109,.07)}
+.sp-card h4{font-size:15px;margin-bottom:8px}
+.sp-card p{font-size:13.5px;line-height:1.6;margin:0}
+
+/* Value table */
+.sp-table{width:100%;border-collapse:separate;border-spacing:0}
+.sp-table td{padding:14px 16px;font-weight:700;font-size:15px}
+.sp-table tr{border-bottom:1px solid #eef1f6}
+.sp-table .val{text-align:right;color:#F75600}
+.sp-table .label{color:#002C6D}
+.sp-table .total{background:linear-gradient(135deg,#002C6D,#0047B3);border-radius:10px}
+.sp-table .total td{color:#fff;font-size:16px;font-weight:800}
+.sp-table .total .val{color:#FF7A30}
+
+/* FAQ */
+.sp-faq{background:#fff;border:1px solid #eef1f6;border-radius:14px;padding:24px;margin-bottom:14px}
+.sp-faq:last-child{margin-bottom:0}
+.sp-faq h4{font-size:15px;margin-bottom:6px}
+.sp-faq p{font-size:14px;line-height:1.6;margin:0}
     </style>
 </head>
 <body>
@@ -42,25 +90,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
         <div class="scrollbar-v show-on-scroll"></div>
         <div id="de-loader"></div>
 
-        <header class="transparent scroll-light has-topbar">
-            <div id="topbar">
-                <div class="container">
-                    <div class="row"><div class="col-lg-12">
-                        <div class="d-flex justify-content-between xs-hide">
-                            <div class="header-widget d-flex">
-                                <div class="topbar-widget"><a href="tel:3213847868"><i class="icofont-phone"></i>(321) 384-7868</a></div>
-                                <div class="topbar-widget"><a href="mailto:info@soligoair.com"><i class="icofont-envelope"></i>info@soligoair.com</a></div>
-                                <div class="topbar-widget"><a href="#"><i class="icofont-wall-clock"></i>Mon - Sat 07.00 - 20.00</a></div>
-                            </div>
-                            <div class="social-icons">
-                                <a href="https://facebook.com/soligo.air" target="_blank" rel="noopener"><i class="fa-brands fa-facebook fa-lg"></i></a>
-                                <a href="https://instagram.com/soligoair" target="_blank" rel="noopener"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                            </div>
-                        </div>
-                    </div></div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
+        <header class="transparent scroll-light">
             <div class="container"><div class="row"><div class="col-md-12">
                 <div class="de-flex sm-pt10">
                     <div class="de-flex-col">
@@ -102,81 +132,80 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
         <div class="no-bottom no-top" id="content">
             <div id="top"></div>
 
-            <!-- Hero -->
-            <section class="jarallax text-light" style="min-height:40vh;display:flex;align-items:center;padding:120px 0 60px;">
-                <img src="images/misc/family-comfort.webp" class="jarallax-img" alt="Air Care+ Membership Soligo Air" width="1920" height="1080">
-                <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(247,86,0,0.82),rgba(255,122,48,0.68));z-index:1;"></div>
-                <div class="container" style="position:relative;z-index:2;">
-                    <h1 style="color:#fff;font-weight:900;font-size:2.4rem;">Air Care+ Membership &mdash; $29/Month</h1>
-                    <p class="lead" style="color:rgba(255,255,255,0.92);max-width:600px;">The smartest way to protect your AC investment. Priority service, guaranteed savings.</p>
-                    <a class="btn-main mt-3" style="background:#002C6D !important;" href="#signup">Join Air Care+</a>
-                    <a class="btn-main bg-color-2 mt-3 ms-2" style="background:#fff !important;color:#F75600 !important;" href="tel:3213847868">Call (321) 384-7868</a>
+            <!-- Hero: Video desktop / Static mobile -->
+            <section class="sp-hero">
+                <video autoplay muted loop playsinline poster="images/slider/hero-aircare-poster.webp">
+                    <source src="videos/hero-aircare.mp4" type="video/mp4">
+                </video>
+                <img class="hero-poster" src="images/slider/hero-aircare-poster.webp" alt="Air Care+ Membership — AC maintenance by Soligo Air">
+                <div class="hero-inner">
+                    <h1>Air Care+ Membership &mdash; $29/Month</h1>
+                    <p class="hero-sub">Priority service, 2 annual tune-ups, 15% off repairs, and peace of mind year-round.</p>
+                    <div class="hero-ctas">
+                        <a class="sp-pill-primary" href="#signup">Join Air Care+</a>
+                        <a class="sp-pill-secondary" href="tel:3213847868">Tap to Call (321) 384-7868</a>
+                    </div>
                 </div>
             </section>
 
-            <!-- Membership Benefits Intro -->
-            <section class="pt50">
+            <!-- Trust Strip -->
+            <section class="sp-trust no-top no-bottom">
                 <div class="container">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6">
-                            <img loading="lazy" src="images/misc/financing-zero.webp" class="img-fluid rounded-20px" alt="Air Care+ Membership Benefits" width="800" height="800">
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="subtitle wow fadeInUp mb-3">Membership Benefits</div>
-                            <h2 class="wow fadeInUp">Everything You Need to Keep Your AC Running Perfectly</h2>
-                            <p>Florida's heat pushes your AC harder than almost anywhere else in the country. Without regular maintenance, small problems become expensive breakdowns. Air Care+ keeps your system in peak condition year-round so you never get caught off guard.</p>
-                            <p>For just $29/month, you get two professional tune-ups every year, priority scheduling when you need repairs, and 15% off every service call. Most members save more on a single repair than they pay for the entire year of membership.</p>
-                            <div class="spacer-10"></div>
-                            <a class="btn-main" href="#signup">Become a Member</a>
-                        </div>
+                    <div class="sp-trust-inner">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg> 2 Tune-Ups/Year</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6"/><path d="M9 9h.01"/><path d="M15 15h.01"/></svg> 15% Off Repairs</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16.5 12"/></svg> Priority Dispatch</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> No Overtime Charges</span>
                     </div>
                 </div>
             </section>
 
             <!-- What's Included -->
-            <section class="bg-color-3">
+            <section>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3 text-center">
-                            <h2>What's Included</h2>
+                            <div class="subtitle wow fadeInUp mb-3">Membership Benefits</div>
+                            <h2 class="wow fadeInUp">Everything Included for $29/Month</h2>
+                            <p class="lead wow fadeInUp">No contracts. Cancel anytime. Start saving immediately.</p>
                             <div class="spacer-single"></div>
                         </div>
                     </div>
                     <div class="row g-4">
                         <div class="col-lg-4 col-md-6">
-                            <div class="p-4 bg-white rounded-20px h-100">
-                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-4px;"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>2 Annual Tune-Ups</h4>
-                                <p class="mb-0">Two comprehensive AC tune-ups per year to keep your system efficient and reliable. A $178/year value included free with your membership.</p>
+                            <div class="sp-card h-100">
+                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-3px;"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>2 Annual Tune-Ups</h4>
+                                <p>Two comprehensive AC tune-ups per year. A $178/year value included free with membership.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <div class="p-4 bg-white rounded-20px h-100">
-                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-4px;"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6"/><path d="M9 9h.01"/><path d="M15 15h.01"/></svg>15% Off All Repairs</h4>
-                                <p class="mb-0">Every repair service is automatically discounted 15% for Air Care+ members &mdash; parts and labor. No coupons, no hassle.</p>
+                            <div class="sp-card h-100">
+                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-3px;"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6"/><path d="M9 9h.01"/><path d="M15 15h.01"/></svg>15% Off All Repairs</h4>
+                                <p>Every repair is automatically discounted 15% — parts and labor. No coupons needed.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <div class="p-4 bg-white rounded-20px h-100">
-                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16.5 12"/></svg>Priority Dispatch</h4>
-                                <p class="mb-0">Members jump the queue. When your AC breaks down, you get served before non-members &mdash; especially critical during peak summer months.</p>
+                            <div class="sp-card h-100">
+                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16.5 12"/></svg>Priority Dispatch</h4>
+                                <p>Members jump the queue. When your AC breaks down, you get served first — critical in peak summer.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <div class="p-4 bg-white rounded-20px h-100">
-                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-4px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>No Overtime Charges</h4>
-                                <p class="mb-0">Need service on evenings or weekends? Air Care+ members pay zero overtime or after-hours fees &mdash; ever.</p>
+                            <div class="sp-card h-100">
+                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-3px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>No Overtime Charges</h4>
+                                <p>Evenings, weekends — Air Care+ members pay zero overtime or after-hours fees.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <div class="p-4 bg-white rounded-20px h-100">
-                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-4px;"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>Transferable Warranty</h4>
-                                <p class="mb-0">Selling your home? Transfer your Air Care+ membership to the new owner. It adds real value to your property listing.</p>
+                            <div class="sp-card h-100">
+                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-3px;"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/></svg>Transferable</h4>
+                                <p>Selling your home? Transfer your membership to the new owner — adds real value.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <div class="p-4 bg-white rounded-20px h-100">
-                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-4px;"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Price Lock Guarantee</h4>
-                                <p class="mb-0">Your $29/month rate is locked in for as long as you remain a member. No annual increases, no surprise rate hikes.</p>
+                            <div class="sp-card h-100">
+                                <h4><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:-3px;"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Price Lock</h4>
+                                <p>$29/month locked in for life. No annual increases, no surprise rate hikes.</p>
                             </div>
                         </div>
                     </div>
@@ -184,49 +213,34 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
             </section>
 
             <!-- The Math -->
-            <section>
+            <section class="bg-color-3">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3 text-center">
                             <h2>The Math Speaks for Itself</h2>
-                            <p>Air Care+ pays for itself before you even need a repair.</p>
+                            <p class="lead">Air Care+ pays for itself before you even need a repair.</p>
                             <div class="spacer-single"></div>
                         </div>
                     </div>
-                    <div class="row g-4 justify-content-center">
+                    <div class="row justify-content-center">
                         <div class="col-lg-8">
-                            <div class="p-4 bg-white rounded-20px">
-                                <table style="width:100%;border-collapse:collapse;">
-                                    <tr style="border-bottom:2px solid #F0F4FF;">
-                                        <td style="padding:14px 10px;font-weight:700;color:#002C6D;font-size:1.05rem;">2 Annual Tune-Ups</td>
-                                        <td style="padding:14px 10px;text-align:right;font-weight:700;color:#F75600;font-size:1.05rem;">$178 value</td>
-                                    </tr>
-                                    <tr style="border-bottom:2px solid #F0F4FF;">
-                                        <td style="padding:14px 10px;font-weight:700;color:#002C6D;font-size:1.05rem;">Priority Dispatch</td>
-                                        <td style="padding:14px 10px;text-align:right;font-weight:700;color:#F75600;font-size:1.05rem;">Priceless in July</td>
-                                    </tr>
-                                    <tr style="border-bottom:2px solid #F0F4FF;">
-                                        <td style="padding:14px 10px;font-weight:700;color:#002C6D;font-size:1.05rem;">15% Off Every Repair</td>
-                                        <td style="padding:14px 10px;text-align:right;font-weight:700;color:#F75600;font-size:1.05rem;">$75–$300+ saved per repair</td>
-                                    </tr>
-                                    <tr style="border-bottom:2px solid #F0F4FF;">
-                                        <td style="padding:14px 10px;font-weight:700;color:#002C6D;font-size:1.05rem;">No Overtime Charges</td>
-                                        <td style="padding:14px 10px;text-align:right;font-weight:700;color:#F75600;font-size:1.05rem;">$50–$150 saved per call</td>
-                                    </tr>
-                                    <tr style="background:linear-gradient(135deg,#002C6D,#0047B3);border-radius:10px;">
-                                        <td style="padding:16px 10px;font-weight:800;color:#fff;font-size:1.1rem;">Your Annual Cost</td>
-                                        <td style="padding:16px 10px;text-align:right;font-weight:800;color:#FF7A30;font-size:1.1rem;">$348/year ($29/mo)</td>
-                                    </tr>
+                            <div style="background:#fff;border:1px solid #eef1f6;border-radius:16px;padding:4px;overflow:hidden;">
+                                <table class="sp-table">
+                                    <tr><td class="label">2 Annual Tune-Ups</td><td class="val">$178 value</td></tr>
+                                    <tr><td class="label">Priority Dispatch</td><td class="val">Priceless in July</td></tr>
+                                    <tr><td class="label">15% Off Every Repair</td><td class="val">$75–$300+ saved</td></tr>
+                                    <tr><td class="label">No Overtime Charges</td><td class="val">$50–$150 saved</td></tr>
+                                    <tr class="total"><td>Your Annual Cost</td><td class="val">$348/year ($29/mo)</td></tr>
                                 </table>
-                                <p class="text-center mt-4 mb-0" style="font-weight:700;color:#002C6D;font-size:1.1rem;">The tune-ups alone are worth $178 &mdash; that's more than half your annual cost covered before any repairs.</p>
                             </div>
+                            <p class="text-center mt-4" style="font-weight:700;color:#002C6D;font-size:15px;">The tune-ups alone are worth $178 — more than half your annual cost covered before any repairs.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- FAQ -->
-            <section class="bg-color-3">
+            <section>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3 text-center">
@@ -236,17 +250,17 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
-                            <div class="p-4 bg-white rounded-20px mb-4">
-                                <h4 style="margin-bottom:10px;">Can I cancel anytime?</h4>
-                                <p class="mb-0">Yes. There are no contracts and no cancellation fees. You can cancel your Air Care+ membership at any time with a simple phone call or email. We believe you should stay because of the value, not because of a contract.</p>
+                            <div class="sp-faq">
+                                <h4>Can I cancel anytime?</h4>
+                                <p>Yes. No contracts, no cancellation fees. Cancel with a simple phone call or email. We believe you should stay because of the value, not a contract.</p>
                             </div>
-                            <div class="p-4 bg-white rounded-20px mb-4">
-                                <h4 style="margin-bottom:10px;">Does it cover parts?</h4>
-                                <p class="mb-0">Parts are billed separately, but Air Care+ members receive a 15% discount on all parts and labor. This discount applies to every service call for the life of your membership.</p>
+                            <div class="sp-faq">
+                                <h4>Does it cover parts?</h4>
+                                <p>Parts are billed separately, but members receive 15% off all parts and labor on every service call.</p>
                             </div>
-                            <div class="p-4 bg-white rounded-20px">
-                                <h4 style="margin-bottom:10px;">How do I sign up?</h4>
-                                <p class="mb-0">Signing up is easy. Call us at <a href="tel:3213847868" style="color:#F75600;font-weight:700;">(321) 384-7868</a> or fill out the form on our website. We'll get you enrolled and schedule your first tune-up right away.</p>
+                            <div class="sp-faq">
+                                <h4>How do I sign up?</h4>
+                                <p>Call us at <a href="tel:3213847868" style="color:#F75600;font-weight:700;">(321) 384-7868</a> or fill out the form on our website. We'll enroll you and schedule your first tune-up right away.</p>
                             </div>
                         </div>
                     </div>
@@ -258,7 +272,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
                 <div class="container">
                     <div class="row g-4 align-items-center">
                         <div class="col-lg-9">
-                            <h3 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-right:12px;vertical-align:-6px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Join Air Care+ today &mdash; call (321) 384-7868</h3>
+                            <h3 class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:10px;vertical-align:-5px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Join Air Care+ today — call (321) 384-7868</h3>
                         </div>
                         <div class="col-lg-3 text-lg-end text-start">
                             <a class="btn-main bg-color-2" href="tel:3213847868">Call (321) 384-7868</a>
@@ -273,7 +287,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
             <div class="container">
                 <div class="row gx-5">
                     <div class="col-lg-4 col-sm-6">
-                        <img loading="lazy" src="icon-v2.png" alt="Soligo Air" style="height:42px" width="42" height="42"> <span style="font-size:1.2rem;font-weight:800;color:#fff;vertical-align:middle;margin-left:8px;">SOLIGO AIR</span>
+                        <img loading="lazy" src="icon-v2.png" alt="Soligo Air" style="height:42px"> <span style="font-size:1.2rem;font-weight:800;color:#fff;vertical-align:middle;margin-left:8px;">SOLIGO AIR</span>
                         <div class="spacer-20"></div>
                         <p>Licensed HVAC contractor serving Orlando and Central Florida since 2023. FL Lic. CAC1823002.</p>
                         <div class="social-icons mb-sm-30">
