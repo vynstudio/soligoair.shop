@@ -100,7 +100,6 @@
     ================================================== -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
     <link href="css/plugins.css" rel="stylesheet" type="text/css" >
-    <link href="css/swiper.css" rel="stylesheet" type="text/css" >
     <link href="css/style.css" rel="stylesheet" type="text/css" >
     <link href="css/coloring.css" rel="stylesheet" type="text/css" >
     <!-- color scheme -->
@@ -121,9 +120,6 @@ body { color: #6B7A99; background: #F8F9FD; }
 .bg-color-2 { background: linear-gradient(135deg, #F75600 0%, #FF7A30 100%) !important; }
 .bg-color-3 { background: linear-gradient(160deg, #F0F4FF 0%, #F8F9FD 100%) !important; }
 footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !important; }
-/* Hero slider overlay */
-.sw-overlay { background: linear-gradient(135deg, rgba(0,44,109,0.72) 0%, rgba(0,18,40,0.60) 100%) !important; }
-.sw-overlay.s2 { background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(247,86,0,0.35) 100%) !important; }
     </style>
 
 </head>
@@ -192,76 +188,58 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
 
             <div id="top"></div>
 
-            <section class="section-dark text-light no-top no-bottom position-relative overflow-hidden z-1000">
-                <div class="v-center">
-                    <div class="swiper">
-                      <!-- Additional required wrapper -->
-                      <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide">
-                            <div class="swiper-inner" data-bgimage="url(images/slider/1.webp)">
-                                <div class="sw-caption">
-                                    <div class="container">
-                                        <div class="row gx-5 align-items-center">
+            <section class="no-top no-bottom position-relative overflow-hidden" id="hero-section">
+                <style>
+                #hero-section{min-height:92vh;display:flex;align-items:center;position:relative;background:#f0f4fa}
+                #hero-section .hero-bg{position:absolute;inset:0;z-index:0}
+                #hero-section .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center right}
+                #hero-section .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,0.88) 0%,rgba(255,255,255,0.6) 38%,rgba(255,255,255,0.08) 65%,transparent 80%)}
+                #hero-section .hero-content{position:relative;z-index:2;padding:140px 0 80px}
+                .hero-glass{background:rgba(255,255,255,0.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.5);border-radius:20px;padding:44px 40px;max-width:560px;box-shadow:0 4px 30px rgba(0,44,109,0.06)}
+                .hero-glass .hero-eyebrow{font-size:13px;font-weight:700;color:#F75600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+                .hero-glass h1{font-size:2.4rem;font-weight:900;color:#002C6D;line-height:1.15;margin-bottom:16px}
+                .hero-glass .hero-body{font-size:15px;line-height:1.7;color:#4a5568;margin-bottom:20px}
+                .hero-glass .hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:#6B7A99;font-weight:500;margin-bottom:24px}
+                .hero-glass .hero-trust span{display:flex;align-items:center;gap:4px;white-space:nowrap}
+                .hero-glass .hero-trust svg{width:15px;height:15px;flex-shrink:0}
+                .hero-glass .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+                .hero-cta-primary{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;font-weight:800;font-size:15px;padding:15px 32px;border-radius:10px;text-decoration:none;border:none;transition:transform 0.15s,box-shadow 0.15s}
+                .hero-cta-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(247,86,0,0.3);color:#fff}
+                .hero-cta-secondary{display:inline-flex;align-items:center;justify-content:center;background:rgba(0,44,109,0.08);color:#002C6D;font-weight:700;font-size:15px;padding:15px 28px;border-radius:10px;text-decoration:none;border:1.5px solid rgba(0,44,109,0.15);transition:all 0.15s;backdrop-filter:blur(8px)}
+                .hero-cta-secondary:hover{background:rgba(0,44,109,0.14);color:#002C6D;border-color:rgba(0,44,109,0.25)}
+                @media(max-width:991px){
+                    #hero-section{min-height:auto}
+                    #hero-section .hero-content{padding:110px 0 60px}
+                    #hero-section .hero-bg::after{background:linear-gradient(180deg,rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.8) 60%,rgba(255,255,255,0.3) 100%)}
+                    .hero-glass{max-width:100%;padding:32px 24px;backdrop-filter:blur(16px);background:rgba(255,255,255,0.8)}
+                    .hero-glass h1{font-size:1.8rem}
+                }
+                @media(max-width:600px){
+                    .hero-glass{padding:28px 20px;border-radius:16px}
+                    .hero-glass h1{font-size:1.6rem}
+                    .hero-cta-primary,.hero-cta-secondary{width:100%;justify-content:center}
+                }
+                </style>
 
-                                            <div class="spacer-double"></div>
-
-                                            <div class="col-lg-8 offset-lg-2 text-center">     
-                                                <div class="spacer-single"></div>
-                                                <div class="sw-text-wrapper">
-                                                    <div class="subtitle s2 mb-2">Serving Central Florida Since 2023</div>
-                                                    <h1 class="slider-title mb-3" style="font-size:inherit;">AC Repair &amp; HVAC Services in Orlando, FL</h1>
-                                                    <h3 class="slider-teaser mb-3">Licensed Technicians | Upfront Pricing | 0% Financing</h3>
-                                                    <div class="spacer-10"></div>
-                                                    <a class="btn-main mb10 mb-3" href="#quote">Get Free Quote</a>
-                                                </div>
-                                            </div>
-
-                                            <div class="spacer-single"></div>
-                                        </div>
-
-                                        <div class="row g-4 slider-extra sm-hide">
-                                            <div class="col-lg-4 col-md-6 mb-sm-30">
-                                                <div class="relative">
-                                                    <img loading="lazy" src="images/icons/white/labor.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
-                                                    <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
-                                                    <div class="pl-100">
-                                                        <h4>Licensed Technicians</h4>
-                                                        <p>EPA-certified, manufacturer-trained for all major brands.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-lg-4 col-md-6 mb-sm-30">
-                                                <div class="relative">
-                                                    <img loading="lazy" src="images/icons/white/calendar.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
-                                                    <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
-                                                    <div class="pl-100">
-                                                        <h4>Same-Day Service</h4>
-                                                        <p>Fast dispatch available across Central Florida.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-lg-4 col-md-6 mb-sm-30">
-                                                <div class="relative">
-                                                    <img loading="lazy" src="images/icons/white/best-price.webp" class="absolute w-80px p-3 mb-3 z-2" alt="">
-                                                    <div class="absolute bg-color-2 w-80px circle h-80px p-3"></div>
-                                                    <div class="pl-100">
-                                                        <h4>0% Financing</h4>
-                                                        <p>Flexible payment options for every budget.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="sw-overlay"></div>
+                <div class="hero-bg">
+                    <img src="images/slider/1.webp" alt="HVAC technician servicing AC in a bright Florida home">
+                </div>
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-glass">
+                            <div class="hero-eyebrow">Serving Central Florida Since 2023</div>
+                            <h1>AC Repair &amp; HVAC Services in Orlando, FL</h1>
+                            <p class="hero-body">Fast response, honest pricing, and licensed technicians for repairs, replacements, tune-ups, and indoor comfort.</p>
+                            <div class="hero-trust">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Same-day service</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Upfront pricing</span>
+                                <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 0% financing available</span>
+                            </div>
+                            <div class="hero-ctas">
+                                <a class="hero-cta-primary" href="#quote">Get Free Quote</a>
+                                <a class="hero-cta-secondary" href="tel:3213847868">Call (321) 384-7868</a>
                             </div>
                         </div>
-                        <!-- Single static slide -->
-
-                      </div>
                     </div>
                 </div>
             </section>
@@ -1011,9 +989,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
     ================================================== -->
     <script src="js/plugins.js" defer></script>
     <script src="js/designesia.js" defer></script>
-    <script src="js/swiper.js" defer></script>
     <script src="js/custom-marquee.js" defer></script>
-    <script src="js/custom-swiper-1.js" defer></script>
 
     <script>
     document.getElementById('lead-form').addEventListener('submit', async function(e) {
@@ -1029,7 +1005,7 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
         });
         var json = await res.json();
         if (json.success) {
-          this.innerHTML = '<div style="text-align:center;padding:24px 0;color:#fff;font-weight:700;font-size:16px;">Thank you! A specialist will call you shortly.</div>';
+          this.innerHTML = '<div style="text-align:center;padding:24px 0;color:#002C6D;font-weight:700;font-size:16px;">Thank you! A specialist will call you shortly.</div>';
         } else { throw new Error(json.message); }
       } catch(err) {
         btn.disabled = false; btn.textContent = 'Get My Free Quote';
