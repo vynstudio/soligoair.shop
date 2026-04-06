@@ -38,9 +38,8 @@ html, body { overflow-x: hidden; overflow-y: auto; }
 
 /* Hero */
 .sp-hero{position:relative;min-height:65vh;display:flex;align-items:center;overflow:hidden;background:#001530}
-.sp-hero video,.sp-hero .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.sp-hero .hero-poster{display:none}
-.sp-hero::after{content:'';position:absolute;inset:0;background:rgba(0,20,50,0.4);z-index:1}
+.sp-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sp-hero::after{content:'';position:absolute;inset:0;background:rgba(0,20,50,0.35);z-index:1}
 .sp-hero .hero-inner{position:relative;z-index:2;text-align:center;width:100%;padding:100px 20px 48px}
 .sp-hero h1{font-size:2.2rem;font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;text-shadow:0 2px 16px rgba(0,0,0,0.3);max-width:700px;margin-left:auto;margin-right:auto}
 .sp-hero .hero-sub{font-size:15px;color:rgba(255,255,255,0.88);font-weight:500;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.25);max-width:520px;margin-left:auto;margin-right:auto}
@@ -50,8 +49,6 @@ html, body { overflow-x: hidden; overflow-y: auto; }
 .sp-pill-secondary{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.9);color:#002C6D;font-weight:700;font-size:15px;padding:15px 32px;border-radius:999px;text-decoration:none;border:none;transition:all .15s;box-shadow:0 2px 14px rgba(0,0,0,.1)}
 .sp-pill-secondary:hover{background:#fff;box-shadow:0 4px 22px rgba(0,0,0,.14);color:#002C6D}
 @media(max-width:768px){
-    .sp-hero video{display:none}
-    .sp-hero .hero-poster{display:block}
     .sp-hero{min-height:55vh}
     .sp-hero h1{font-size:1.6rem}
     .sp-pill-primary,.sp-pill-secondary{padding:13px 28px;font-size:14px}
@@ -134,12 +131,9 @@ html, body { overflow-x: hidden; overflow-y: auto; }
         <div class="no-bottom no-top" id="content">
             <div id="top"></div>
 
-            <!-- Hero: Video desktop / Static mobile -->
+            <!-- Hero -->
             <section class="sp-hero">
-                <video autoplay muted loop playsinline poster="images/slider/hero-aircare-poster.webp">
-                    <source src="videos/hero-aircare.mp4" type="video/mp4">
-                </video>
-                <img class="hero-poster" src="images/slider/hero-aircare-poster.webp" alt="Air Care+ Membership — AC maintenance by Soligo Air">
+                <img src="images/misc/family-ac.webp" alt="Family enjoying comfort with Air Care+ membership by Soligo Air">
                 <div class="hero-inner">
                     <h1>Air Care+ Membership &mdash; $29/Month</h1>
                     <p class="hero-sub">Priority service, 2 annual tune-ups, 15% off repairs, and peace of mind year-round.</p>
