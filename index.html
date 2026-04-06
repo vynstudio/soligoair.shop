@@ -191,6 +191,7 @@ html, body { overflow-x: hidden; overflow-y: auto; }
             <div id="top"></div>
 
 
+            <div class="hero-wrap" style="display:flex;flex-direction:column;">
             <section class="no-top no-bottom position-relative overflow-hidden" id="hero-section">
                 <style>
                 #hero-section{min-height:65vh;display:flex;align-items:center;position:relative;background:#f5f0ea}
@@ -205,10 +206,14 @@ html, body { overflow-x: hidden; overflow-y: auto; }
                 .hero-pill-white{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.9);color:#002C6D;font-weight:700;font-size:15px;padding:15px 32px;border-radius:999px;text-decoration:none;border:none;transition:all 0.15s;box-shadow:0 2px 14px rgba(0,0,0,0.1)}
                 .hero-pill-white:hover{background:#fff;box-shadow:0 4px 22px rgba(0,0,0,0.14);color:#002C6D}
                 #hero-section .hero-bg::after{content:'';position:absolute;inset:0;background:rgba(0,20,50,0.35)}
+                .hero-trust-bar{position:relative;transform:none;left:auto;bottom:auto;margin-top:0;background:#002C6D;padding:14px 0;z-index:3}
+                .hero-trust-bar .trust-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;color:#fff;font-size:13px;font-weight:600}
+                .hero-trust-bar .trust-inner span{display:flex;align-items:center;gap:6px;white-space:nowrap}
                 @media(max-width:600px){
                     #hero-section{min-height:55vh}
                     .hero-inner h1{font-size:1.6rem}
                     .hero-pill-orange,.hero-pill-white{padding:13px 28px;font-size:14px}
+                    .hero-trust-bar .trust-inner{gap:16px;font-size:12px}
                 }
                 </style>
 
@@ -225,15 +230,16 @@ html, body { overflow-x: hidden; overflow-y: auto; }
                 </div>
             </section>
 
-            <section class="no-top no-bottom" style="background:#002C6D;padding:14px 0;">
+            <div class="hero-trust-bar">
                 <div class="container">
-                    <div style="display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;color:#fff;font-size:13px;font-weight:600;">
-                        <span style="display:flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg> Same-Day Service</span>
-                        <span style="display:flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Licensed FL #CAC1823002</span>
-                        <span style="display:flex;align-items:center;gap:6px;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6"/><path d="M9 9h.01"/><path d="M15 15h.01"/></svg> 0% Financing Available</span>
+                    <div class="trust-inner">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg> Same-Day Service</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Licensed FL #CAC1823002</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F75600" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6"/><path d="M9 9h.01"/><path d="M15 15h.01"/></svg> 0% Financing Available</span>
                     </div>
                 </div>
-            </section>
+            </div>
+            </div>
 
 
             <section class="no-top" id="services">
