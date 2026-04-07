@@ -79,12 +79,17 @@ exports.handler = async (event) => {
   }
 
   // Build clean payload for GHL
+  // GHL workflow maps "Services Needed" to {{inboundWebhookRequest.service_needed}},
+  // so we always send both `service` and `service_needed` with the same canonical value.
+  const canonicalService = trim(body.service) || trim(body.service_needed);
+
   const lead = {
     name: trim(body.name),
     phone: digitsOnly(body.phone),
     zip: trim(body.zip),
     email: trim(body.email),
-    service: trim(body.service),
+    service: canonicalService,
+    service_needed: canonicalService,
     source: trim(body.source),
     page_url: trim(body.page_url),
     utm_source: trim(body.utm_source),

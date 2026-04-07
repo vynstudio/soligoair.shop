@@ -247,6 +247,7 @@
       zip: val('zip'),
       email: val('email'),
       service: serviceValue,
+      service_needed: serviceValue,
       source: val('source'),
       page_url: window.location.href,
       utm_source: getQueryParam('utm_source'),
