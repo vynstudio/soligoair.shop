@@ -26,6 +26,105 @@
   var ENDPOINT = '/.netlify/functions/lead';
   var GOOGLE_CONVERSION = 'AW-17179141807/SI3SCMmOyf8bEK_N0_8_';
 
+  // Canonical service catalog — must match the <option> values in the form select.
+  var SERVICE_OPTIONS = [
+    'AC Installation',
+    'AC Repair',
+    'AC Replacement',
+    'Mini Split Installation',
+    'Heat Pump Installation',
+    'Indoor Air Quality',
+    'Ductwork / Airflow',
+    'Maintenance'
+  ];
+
+  // Alias map: lowercased, hyphenated keys → canonical service value.
+  // Used to normalize ?service=, ?utm_campaign=, ?adset=, and data-service-default.
+  var SERVICE_ALIASES = {
+    // AC Installation
+    'install': 'AC Installation',
+    'installation': 'AC Installation',
+    'new-ac': 'AC Installation',
+    'newac': 'AC Installation',
+    'ac-install': 'AC Installation',
+    'ac-installation': 'AC Installation',
+    // AC Repair
+    'repair': 'AC Repair',
+    'fix': 'AC Repair',
+    'no-cool': 'AC Repair',
+    'nocool': 'AC Repair',
+    'ac-repair': 'AC Repair',
+    'broken-ac': 'AC Repair',
+    // AC Replacement
+    'replace': 'AC Replacement',
+    'replacement': 'AC Replacement',
+    'ac-replacement': 'AC Replacement',
+    'ac-replace': 'AC Replacement',
+    // Mini Split
+    'mini-split': 'Mini Split Installation',
+    'minisplit': 'Mini Split Installation',
+    'mini-split-installation': 'Mini Split Installation',
+    'ductless': 'Mini Split Installation',
+    // Heat Pump
+    'heat-pump': 'Heat Pump Installation',
+    'heatpump': 'Heat Pump Installation',
+    'heat-pump-installation': 'Heat Pump Installation',
+    // IAQ
+    'iaq': 'Indoor Air Quality',
+    'air-quality': 'Indoor Air Quality',
+    'indoor-air-quality': 'Indoor Air Quality',
+    // Ductwork
+    'duct': 'Ductwork / Airflow',
+    'ducts': 'Ductwork / Airflow',
+    'ductwork': 'Ductwork / Airflow',
+    'airflow': 'Ductwork / Airflow',
+    // Maintenance
+    'maintenance': 'Maintenance',
+    'tune-up': 'Maintenance',
+    'tuneup': 'Maintenance',
+    'tune': 'Maintenance'
+  };
+
+  function normalizeAlias(value) {
+    if (!value) return '';
+    var raw = String(value).trim();
+    if (!raw) return '';
+    // Exact match against canonical list (case-insensitive)
+    for (var i = 0; i < SERVICE_OPTIONS.length; i++) {
+      if (raw.toLowerCase() === SERVICE_OPTIONS[i].toLowerCase()) return SERVICE_OPTIONS[i];
+    }
+    // Try alias key: lowercase, replace spaces/underscores with hyphens
+    var key = raw.toLowerCase().replace(/[_\s]+/g, '-');
+    return SERVICE_ALIASES[key] || '';
+  }
+
+  // Resolve a default service value using priority:
+  // (a) ?service= query param
+  // (b) ?utm_campaign= or ?adset= query param (if alias matches)
+  // (c) data-service-default attribute on the form
+  // (d) existing input/select value if already canonical
+  function resolveDefaultService(form) {
+    var fromQs = normalizeAlias(getQueryParam('service'));
+    if (fromQs) return fromQs;
+
+    var fromCampaign = normalizeAlias(getQueryParam('utm_campaign'));
+    if (fromCampaign) return fromCampaign;
+
+    var fromAdset = normalizeAlias(getQueryParam('adset'));
+    if (fromAdset) return fromAdset;
+
+    var fromAttr = normalizeAlias(form.getAttribute('data-service-default'));
+    if (fromAttr) return fromAttr;
+
+    var existing = form.querySelector('[name="service"]');
+    if (existing && existing.value) {
+      var fromExisting = normalizeAlias(existing.value);
+      if (fromExisting) return fromExisting;
+    }
+
+    return '';
+  }
+
   var STYLE_ID = 'lead-form-styles';
   function injectStyles() {
     if (document.getElementById(STYLE_ID)) return;
@@ -110,8 +209,9 @@
     var nameInput = form.querySelector('[name="name"]');
     var phoneInput = form.querySelector('[name="phone"]');
     var zipInput = form.querySelector('[name="zip"]');
+    var serviceInput = form.querySelector('[name="service"]');
 
-    [nameInput, phoneInput, zipInput].forEach(clearFieldError);
+    [nameInput, phoneInput, zipInput, serviceInput].forEach(clearFieldError);
 
     var ok = true;
 
@@ -127,6 +227,14 @@
 
     if (!zipInput || !/^\d{5}$/.test(trim(zipInput.value))) {
       showFieldError(zipInput, 'Enter a valid 5-digit ZIP code.');
+      ok = false;
+    }
+
+    // Service is required. Hidden inputs skip the visible error UI.
+    if (!serviceInput || !trim(serviceInput.value)) {
+      if (serviceInput && serviceInput.type !== 'hidden') {
+        showFieldError(serviceInput, 'Please choose a service.');
+      }
       ok = false;
     }
 
@@ -164,11 +272,35 @@
     var btn = form.querySelector('button[type="submit"], [type="submit"]');
     var defaultBtnText = btn ? btn.textContent : '';
 
+    // Smart service auto-selection (visible select or hidden input)
+    var serviceField = form.querySelector('[name="service"]');
+    if (serviceField) {
+      var defaultService = resolveDefaultService(form);
+      if (defaultService) {
+        if (serviceField.tagName === 'SELECT') {
+          // Only set if option exists in the select
+          var hasOption = false;
+          for (var i = 0; i < serviceField.options.length; i++) {
+            if (serviceField.options[i].value === defaultService) {
+              hasOption = true;
+              break;
+            }
+          }
+          if (hasOption) serviceField.value = defaultService;
+        } else {
+          serviceField.value = defaultService;
+        }
+      }
+    }
+
     // Live-clear errors as user types
     ['name', 'phone', 'zip'].forEach(function (n) {
       var el = form.querySelector('[name="' + n + '"]');
       if (el) el.addEventListener('input', function () { clearFieldError(el); });
     });
+    if (serviceField && serviceField.tagName === 'SELECT') {
+      serviceField.addEventListener('change', function () { clearFieldError(serviceField); });
+    }
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();

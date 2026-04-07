@@ -147,13 +147,24 @@ h1,h2,h3,h4{color:#002C6D;font-weight:800;letter-spacing:-0.3px;line-height:1.2}
                 <h3 class="lp-form-title">Get My Free Estimate</h3>
                 <p class="lp-form-sub">We'll call you shortly to schedule your free in-home assessment.</p>
 
-                <form data-lead-form data-success-url="/thank-you" novalidate>
+                <form data-lead-form data-success-url="/thank-you" data-service-default="AC Installation" novalidate>
                     <div class="lp-form-row">
                         <input type="text" name="name" placeholder="Full Name *" required class="lp-input">
                         <input type="tel" name="phone" placeholder="Phone Number *" required inputmode="tel" class="lp-input">
                         <input type="text" name="zip" placeholder="ZIP Code *" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" class="lp-input">
                         <input type="email" name="email" placeholder="Email (optional)" class="lp-input">
-                        <input type="hidden" name="service" value="AC Installation">
+                        <label for="lp-service" style="font-size:12px;font-weight:700;color:#3d4f6a;margin:4px 2px -4px;display:block">Service Needed *</label>
+                        <select id="lp-service" name="service" required class="lp-input">
+                            <option value="">Choose a service…</option>
+                            <option value="AC Installation">AC Installation</option>
+                            <option value="AC Repair">AC Repair</option>
+                            <option value="AC Replacement">AC Replacement</option>
+                            <option value="Mini Split Installation">Mini Split Installation</option>
+                            <option value="Heat Pump Installation">Heat Pump Installation</option>
+                            <option value="Indoor Air Quality">Indoor Air Quality</option>
+                            <option value="Ductwork / Airflow">Ductwork / Airflow</option>
+                            <option value="Maintenance">Maintenance</option>
+                        </select>
                         <input type="hidden" name="source" value="meta_ac_installation_test">
                         <button type="submit" class="lp-btn-submit">Get My Free Estimate →</button>
                         <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We'll never share your info.</p>
