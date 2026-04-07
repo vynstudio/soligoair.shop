@@ -14,6 +14,7 @@
     <link rel="preload" as="image" href="images/team/austin-jaime.webp">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/forms.css">
 
     <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -216,30 +217,43 @@ select.lp-input{cursor:pointer}
                 <span class="lp-form-tag">Flat $89 · 60-Sec Booking</span>
                 <h3 class="lp-form-title">Book Your $89 Tune-Up</h3>
                 <p class="lp-form-sub">Tell us about your system — we'll call to confirm and schedule.</p>
-                <form id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-ac-tune-up-orlando">
-                    <div class="lp-form-row">
-                        <input type="text" name="name" placeholder="Full Name *" required class="lp-input">
-                        <input type="tel" name="phone" placeholder="Phone Number *" required inputmode="tel" class="lp-input">
-                        <div class="lp-grid-2">
-                            <input type="text" name="zip" placeholder="ZIP Code *" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" class="lp-input">
-                            <select name="systemType" required class="lp-input">
-                                <option value="">System Type *</option>
-                                <option value="Central AC">Central AC</option>
-                                <option value="Heat Pump">Heat Pump</option>
-                                <option value="Not Sure">Not Sure</option>
-                            </select>
-                        </div>
-                        <select name="timeline" required class="lp-input">
-                            <option value="">When works for you? *</option>
+                <form class="form-shell" id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-ac-tune-up-orlando">
+                    <div class="form-field">
+                        <label class="form-label" for="lf-name">Full name <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-name" type="text" name="name" required autocomplete="name">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-phone">Phone number <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-phone" type="tel" name="phone" required inputmode="tel" autocomplete="tel">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-zip">ZIP code <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-zip" type="text" name="zip" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-systemType">System type <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-systemType" name="systemType" required>
+                            <option value="" selected disabled>Select system type</option>
+                            <option value="Central AC">Central AC</option>
+                            <option value="Heat Pump">Heat Pump</option>
+                            <option value="Not Sure">Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-timeline">When works for you? <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-timeline" name="timeline" required>
+                            <option value="" selected disabled>Select timeline</option>
                             <option value="This week">This week</option>
                             <option value="Next 2 weeks">Next 2 weeks</option>
                             <option value="Just exploring">Just exploring</option>
                         </select>
-                        <input type="hidden" name="service" value="AC Tune-Up">
-                        <button type="submit" class="lp-btn-submit">Book My $89 Tune-Up →</button>
-                        <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We'll never share your info.</p>
-                        <p class="lp-form-call">Or call now: <a href="tel:3213847868">(321) 384-7868</a></p>
                     </div>
+                    <input type="hidden" name="service" value="AC Tune-Up">
+                    <div class="form-actions">
+                        <button type="submit" class="lp-btn-submit">Book My $89 Tune-Up →</button>
+                    </div>
+                    <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We&#39;ll never share your info.</p>
+                    <p class="lp-form-call">Or call now: <a href="tel:3213847868">(321) 384-7868</a></p>
                 </form>
 
                 <!-- WHAT HAPPENS NEXT -->

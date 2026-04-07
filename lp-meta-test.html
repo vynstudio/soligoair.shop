@@ -37,6 +37,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/forms.css">
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -147,14 +148,27 @@ h1,h2,h3,h4{color:#002C6D;font-weight:800;letter-spacing:-0.3px;line-height:1.2}
                 <h3 class="lp-form-title">Get My Free Estimate</h3>
                 <p class="lp-form-sub">We'll call you shortly to schedule your free in-home assessment.</p>
 
-                <form data-lead-form data-success-url="/thank-you" data-service-default="AC Installation" novalidate>
-                    <div class="lp-form-row">
-                        <input type="text" name="name" placeholder="Full Name *" required class="lp-input">
-                        <input type="tel" name="phone" placeholder="Phone Number *" required inputmode="tel" class="lp-input">
-                        <input type="text" name="zip" placeholder="ZIP Code *" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" class="lp-input">
-                        <input type="email" name="email" placeholder="Email (optional)" class="lp-input">
-                        <label for="lp-service" style="font-size:12px;font-weight:700;color:#3d4f6a;margin:4px 2px -4px;display:block">Service Needed *</label>
-                        <select id="lp-service" name="service" required class="lp-input">
+                <form class="form-shell" data-lead-form data-success-url="/thank-you" data-service-default="AC Installation" novalidate>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-name">Full name <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-name" type="text" name="name" required autocomplete="name">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-phone">Phone number <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-phone" type="tel" name="phone" required inputmode="tel" autocomplete="tel">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-zip">ZIP code <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-zip" type="text" name="zip" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-email">Email</label>
+                        <input class="form-control" id="lf-email" type="email" name="email" autocomplete="email">
+                        <p class="form-help">Optional — we'll only use this if we can't reach you by phone.</p>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-service">Service needed <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-service" name="service" required>
                             <option value="" selected disabled>Select service needed</option>
                             <option value="AC Installation">AC Installation</option>
                             <option value="AC Repair">AC Repair</option>
@@ -165,12 +179,14 @@ h1,h2,h3,h4{color:#002C6D;font-weight:800;letter-spacing:-0.3px;line-height:1.2}
                             <option value="Ductwork / Airflow">Ductwork / Airflow</option>
                             <option value="Maintenance">Maintenance</option>
                         </select>
-                        <input type="hidden" name="source" value="meta_ac_installation_test">
-                        <button type="submit" class="lp-btn-submit">Get My Free Estimate →</button>
-                        <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We'll never share your info.</p>
-                        <p class="lp-form-call">Or call now: <a href="tel:3213847868">(321) 384-7868</a></p>
-                        <div data-form-message></div>
                     </div>
+                    <input type="hidden" name="source" value="meta_ac_installation_test">
+                    <div class="form-actions">
+                        <button type="submit" class="lp-btn-submit">Get My Free Estimate →</button>
+                    </div>
+                    <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We'll never share your info.</p>
+                    <p class="lp-form-call">Or call now: <a href="tel:3213847868">(321) 384-7868</a></p>
+                    <div data-form-message></div>
                 </form>
             </div>
         </div>

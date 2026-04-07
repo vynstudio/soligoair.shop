@@ -18,6 +18,7 @@
 
     <!-- Brand fonts only — no Bootstrap, no plugins, no Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/forms.css">
 
     <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -206,33 +207,47 @@ select.lp-input{cursor:pointer}
             <div class="lp-form-card">
                 <h3 class="lp-form-title">Get Your Free Repair Quote</h3>
                 <p class="lp-form-sub">Tell us what's wrong — we'll call you back in minutes.</p>
-                <form id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-ac-repair-orlando-t3">
-                    <div class="lp-form-row">
-                        <input type="text" name="name" placeholder="Full Name *" required class="lp-input">
-                        <input type="tel" name="phone" placeholder="Phone Number *" required inputmode="tel" class="lp-input">
-                        <div class="lp-grid-2">
-                            <input type="text" name="zip" placeholder="ZIP Code *" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" class="lp-input">
-                            <select name="issue" required class="lp-input">
-                                <option value="">AC Issue *</option>
-                                <option value="Not Cooling">Not cooling</option>
-                                <option value="No Power">No power / won't turn on</option>
-                                <option value="Strange Noise">Strange noise</option>
-                                <option value="Water Leak">Water leak</option>
-                                <option value="Weak Airflow">Weak airflow</option>
-                                <option value="Other">Other / Not sure</option>
-                            </select>
-                        </div>
-                        <select name="timeline" required class="lp-input">
-                            <option value="">When do you need help? *</option>
+                <form class="form-shell" id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-ac-repair-orlando-t3">
+                    <div class="form-field">
+                        <label class="form-label" for="lf-name">Full name <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-name" type="text" name="name" required autocomplete="name">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-phone">Phone number <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-phone" type="tel" name="phone" required inputmode="tel" autocomplete="tel">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-zip">ZIP code <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-zip" type="text" name="zip" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-issue">AC issue <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-issue" name="issue" required>
+                            <option value="" selected disabled>Select issue</option>
+                            <option value="Not Cooling">Not cooling</option>
+                            <option value="No Power">No power / won&#39;t turn on</option>
+                            <option value="Strange Noise">Strange noise</option>
+                            <option value="Water Leak">Water leak</option>
+                            <option value="Weak Airflow">Weak airflow</option>
+                            <option value="Other">Other / Not sure</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-timeline">When do you need help? <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-timeline" name="timeline" required>
+                            <option value="" selected disabled>Select timeline</option>
                             <option value="Emergency - ASAP">Emergency — ASAP</option>
                             <option value="Today">Today</option>
                             <option value="This week">This week</option>
                             <option value="Just exploring">Just exploring</option>
                         </select>
-                        <input type="hidden" name="service" value="AC Repair">
-                        <button type="submit" class="lp-btn-submit">Get My Free Quote →</button>
-                        <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We'll never share your info.</p>
                     </div>
+                    <input type="hidden" name="service" value="AC Repair">
+                    <div class="form-actions">
+                        <button type="submit" class="lp-btn-submit">Get My Free Quote →</button>
+                    </div>
+                    <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We&#39;ll never share your info.</p>
+                    <p class="lp-form-call">Or call now: <a href="tel:3213847868">(321) 384-7868</a></p>
                 </form>
 
                 <!-- WHAT HAPPENS NEXT — reassurance block -->

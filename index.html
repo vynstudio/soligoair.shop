@@ -106,6 +106,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/forms.css">
 
     <style>
 * { font-family: 'Poppins', sans-serif !important; }
@@ -552,13 +553,24 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                         <div class="quote-card">
                             <h3>Request a Quote</h3>
                             <p class="quote-sub">We'll get back to you fast.</p>
-                            <form id="lead-form" autocomplete="on">
-                                <div style="display:flex;flex-direction:column;gap:11px;">
-                                    <input type="text" name="fullName" placeholder="Full Name *" required class="qf-input">
-                                    <input type="tel" name="phone" placeholder="Phone Number *" required class="qf-input">
-                                    <input type="email" name="email" placeholder="Email (optional)" class="qf-input">
-                                    <select name="service" class="qf-input">
-                                        <option value="">Select Service</option>
+                            <form class="form-shell" id="lead-form" autocomplete="on">
+                                <div class="form-field">
+                                    <label class="form-label" for="lf-name">Full name <span aria-hidden="true">*</span></label>
+                                    <input class="form-control" id="lf-name" type="text" name="fullName" required autocomplete="name">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="lf-phone">Phone number <span aria-hidden="true">*</span></label>
+                                    <input class="form-control" id="lf-phone" type="tel" name="phone" required inputmode="tel" autocomplete="tel">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="lf-email">Email</label>
+                                    <input class="form-control" id="lf-email" type="email" name="email" autocomplete="email">
+                                    <p class="form-help">Optional — we'll only use this if we can't reach you by phone.</p>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="lf-service">Service needed</label>
+                                    <select class="form-control" id="lf-service" name="service">
+                                        <option value="">Select service</option>
                                         <option value="AC Repair">AC Repair</option>
                                         <option value="AC Replacement">AC Replacement</option>
                                         <option value="New Installation">New Installation</option>
@@ -567,7 +579,12 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                                         <option value="Air Care+">Air Care+ Membership</option>
                                         <option value="Other">Other / Not Sure</option>
                                     </select>
-                                    <textarea name="message" rows="2" placeholder="Describe your issue (optional)" class="qf-input" style="resize:vertical;"></textarea>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label" for="lf-message">Anything else?</label>
+                                    <textarea class="form-control" id="lf-message" name="message" rows="3" placeholder="Describe your issue (optional)"></textarea>
+                                </div>
+                                <div class="form-actions">
                                     <button type="submit" class="qf-btn">Get My Free Quote</button>
                                 </div>
                             </form>

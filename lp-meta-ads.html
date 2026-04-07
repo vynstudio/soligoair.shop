@@ -18,6 +18,7 @@
 
     <!-- Brand fonts only — no Bootstrap, no plugins, no Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/forms.css">
 
     <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -200,32 +201,45 @@ select.lp-input{cursor:pointer}
             <div class="lp-form-card">
                 <h3 class="lp-form-title">Get Your Free Quote</h3>
                 <p class="lp-form-sub">Fill this out and we'll call you back within minutes.</p>
-                <form id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-lp">
-                    <div class="lp-form-row">
-                        <input type="text" name="name" placeholder="Full Name *" required class="lp-input">
-                        <input type="tel" name="phone" placeholder="Phone Number *" required inputmode="tel" class="lp-input">
-                        <div class="lp-grid-2">
-                            <input type="text" name="zip" placeholder="ZIP Code *" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" class="lp-input">
-                            <select name="service" required class="lp-input">
-                                <option value="">Service *</option>
-                                <option value="AC Repair">AC Repair</option>
-                                <option value="AC Replacement">AC Replacement</option>
-                                <option value="AC Tune-Up">AC Tune-Up</option>
-                                <option value="New Installation">New Installation</option>
-                                <option value="Other">Other / Not Sure</option>
-                            </select>
-                        </div>
-                        <select name="timeline" required class="lp-input">
-                            <option value="">When do you need help? *</option>
+                <form class="form-shell" id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-lp">
+                    <div class="form-field">
+                        <label class="form-label" for="lf-name">Full name <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-name" type="text" name="name" required autocomplete="name">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-phone">Phone number <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-phone" type="tel" name="phone" required inputmode="tel" autocomplete="tel">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-zip">ZIP code <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-zip" type="text" name="zip" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-service">Service needed <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-service" name="service" required>
+                            <option value="" selected disabled>Select service</option>
+                            <option value="AC Repair">AC Repair</option>
+                            <option value="AC Replacement">AC Replacement</option>
+                            <option value="AC Tune-Up">AC Tune-Up</option>
+                            <option value="New Installation">New Installation</option>
+                            <option value="Other">Other / Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-timeline">When do you need help? <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-timeline" name="timeline" required>
+                            <option value="" selected disabled>Select timeline</option>
                             <option value="Emergency - ASAP">Emergency — ASAP</option>
                             <option value="Today">Today</option>
                             <option value="This week">This week</option>
                             <option value="Next 2 weeks">Next 2 weeks</option>
                             <option value="Just exploring">Just exploring</option>
                         </select>
-                        <button type="submit" class="lp-btn-submit">Get My Free Quote →</button>
-                        <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We'll never share your info.</p>
                     </div>
+                    <div class="form-actions">
+                        <button type="submit" class="lp-btn-submit">Get My Free Quote →</button>
+                    </div>
+                    <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. We&#39;ll never share your info.</p>
                 </form>
             </div>
         </div>

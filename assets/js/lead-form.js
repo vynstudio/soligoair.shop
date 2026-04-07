@@ -112,17 +112,21 @@
     return 'AC Installation';
   }
 
+  // Minimal fallback styles for pages that haven't yet linked /assets/css/forms.css
+  // and for the page-level success/error message div. The global form-* classes
+  // are defined in assets/css/forms.css.
   var STYLE_ID = 'lead-form-styles';
   function injectStyles() {
     if (document.getElementById(STYLE_ID)) return;
     var s = document.createElement('style');
     s.id = STYLE_ID;
     s.textContent =
-      '.lead-form-error{display:block;font-size:12px;color:#d93025;font-weight:600;margin-top:4px;line-height:1.3}' +
-      '.lead-form-input--invalid{border-color:#d93025!important;box-shadow:0 0 0 3px rgba(217,48,37,.08)!important}' +
-      '[data-form-message]{font-size:14px;line-height:1.5;margin-top:12px}' +
+      '[data-form-message]{font-size:0.875rem;line-height:1.5;margin-top:0.75rem}' +
       '[data-form-message].is-success{color:#137333;font-weight:600}' +
-      '[data-form-message].is-error{color:#d93025;font-weight:600}';
+      '[data-form-message].is-error{color:#b42318;font-weight:600}' +
+      // Legacy fallback for pages still using inline styles instead of forms.css
+      '.lead-form-error{display:block;font-size:0.875rem;color:#b42318;margin-top:0.4rem}' +
+      '.lead-form-input--invalid{border-color:#d92d20!important;box-shadow:0 0 0 4px rgba(217,45,32,.12)!important}';
     document.head.appendChild(s);
   }
 
@@ -142,23 +146,40 @@
     }
   }
 
+  // Find the .form-field wrapper for an input. Falls back to the input's parent
+  // if the form isn't using the new global structure yet.
+  function fieldWrap(input) {
+    if (!input) return null;
+    return input.closest('.form-field') || input.parentNode;
+  }
+
   function clearFieldError(input) {
     if (!input) return;
-    input.classList.remove('lead-form-input--invalid');
-    var next = input.nextElementSibling;
-    if (next && next.classList && next.classList.contains('lead-form-error')) {
-      next.remove();
+    var wrap = fieldWrap(input);
+    if (wrap && wrap.classList) wrap.classList.remove('is-error');
+    // Also clean up any prior error nodes (new + legacy)
+    if (wrap) {
+      var prior = wrap.querySelector('.form-error, .lead-form-error');
+      if (prior) prior.remove();
     }
+    input.classList.remove('lead-form-input--invalid');
   }
 
   function showFieldError(input, message) {
     if (!input) return;
     clearFieldError(input);
-    input.classList.add('lead-form-input--invalid');
+    var wrap = fieldWrap(input);
+    if (wrap && wrap.classList) wrap.classList.add('is-error');
     var err = document.createElement('div');
-    err.className = 'lead-form-error';
+    err.className = 'form-error';
     err.textContent = message;
-    input.parentNode.insertBefore(err, input.nextSibling);
+    if (wrap && wrap.classList && wrap.classList.contains('form-field')) {
+      wrap.appendChild(err);
+    } else {
+      // Legacy fallback: insert next to the input
+      input.parentNode.insertBefore(err, input.nextSibling);
+      input.classList.add('lead-form-input--invalid');
+    }
   }
 
   function setMessage(form, text, kind) {

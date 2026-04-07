@@ -18,6 +18,7 @@
 
     <!-- Brand fonts only -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/forms.css">
 
     <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -209,30 +210,43 @@ select.lp-input{cursor:pointer}
                 <span class="lp-form-tag">First Month Free</span>
                 <h3 class="lp-form-title">Start Your Free Month</h3>
                 <p class="lp-form-sub">Enroll in 60 seconds. We'll call you to confirm and schedule your first tune-up.</p>
-                <form id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-air-care-plus">
-                    <div class="lp-form-row">
-                        <input type="text" name="name" placeholder="Full Name *" required class="lp-input">
-                        <input type="tel" name="phone" placeholder="Phone Number *" required inputmode="tel" class="lp-input">
-                        <div class="lp-grid-2">
-                            <input type="text" name="zip" placeholder="ZIP Code *" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" class="lp-input">
-                            <select name="homeType" required class="lp-input">
-                                <option value="">Home Type *</option>
-                                <option value="Primary Home">Primary Home</option>
-                                <option value="Rental">Rental</option>
-                                <option value="Second Home">Second Home</option>
-                            </select>
-                        </div>
-                        <select name="timeline" required class="lp-input">
-                            <option value="">When do you want to start? *</option>
+                <form class="form-shell" id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-air-care-plus">
+                    <div class="form-field">
+                        <label class="form-label" for="lf-name">Full name <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-name" type="text" name="name" required autocomplete="name">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-phone">Phone number <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-phone" type="tel" name="phone" required inputmode="tel" autocomplete="tel">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-zip">ZIP code <span aria-hidden="true">*</span></label>
+                        <input class="form-control" id="lf-zip" type="text" name="zip" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code">
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-homeType">Home type <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-homeType" name="homeType" required>
+                            <option value="" selected disabled>Select home type</option>
+                            <option value="Primary Home">Primary Home</option>
+                            <option value="Rental">Rental</option>
+                            <option value="Second Home">Second Home</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="lf-timeline">When do you want to start? <span aria-hidden="true">*</span></label>
+                        <select class="form-control" id="lf-timeline" name="timeline" required>
+                            <option value="" selected disabled>Select timeline</option>
                             <option value="This month">Start this month</option>
                             <option value="Next 2-3 months">Next 2–3 months</option>
                             <option value="Just exploring">Just exploring</option>
                         </select>
-                        <input type="hidden" name="service" value="Air Care+ Membership">
-                        <button type="submit" class="lp-btn-submit">Start First Free Month →</button>
-                        <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. Cancel anytime, no contract.</p>
-                        <p class="lp-form-call">Or call to join: <a href="tel:3213847868">(321) 384-7868</a></p>
                     </div>
+                    <input type="hidden" name="service" value="Air Care+ Membership">
+                    <div class="form-actions">
+                        <button type="submit" class="lp-btn-submit">Start First Free Month →</button>
+                    </div>
+                    <p class="lp-form-disclaimer">By submitting, you agree to be contacted by Soligo Air. Cancel anytime, no contract.</p>
+                    <p class="lp-form-call">Or call to join: <a href="tel:3213847868">(321) 384-7868</a></p>
                 </form>
 
                 <!-- WHAT HAPPENS NEXT -->
