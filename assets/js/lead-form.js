@@ -38,81 +38,72 @@
     'Maintenance'
   ];
 
-  // Alias map: lowercased, hyphenated keys → canonical service value.
-  // Used to normalize ?service=, ?utm_campaign=, ?adset=, and data-service-default.
-  var SERVICE_ALIASES = {
-    // AC Installation
-    'install': 'AC Installation',
-    'installation': 'AC Installation',
-    'new-ac': 'AC Installation',
-    'newac': 'AC Installation',
-    'ac-install': 'AC Installation',
-    'ac-installation': 'AC Installation',
-    // AC Repair
-    'repair': 'AC Repair',
-    'fix': 'AC Repair',
-    'no-cool': 'AC Repair',
-    'nocool': 'AC Repair',
-    'ac-repair': 'AC Repair',
-    'broken-ac': 'AC Repair',
-    // AC Replacement
-    'replace': 'AC Replacement',
-    'replacement': 'AC Replacement',
-    'ac-replacement': 'AC Replacement',
-    'ac-replace': 'AC Replacement',
-    // Mini Split
-    'mini-split': 'Mini Split Installation',
-    'minisplit': 'Mini Split Installation',
-    'mini-split-installation': 'Mini Split Installation',
-    'ductless': 'Mini Split Installation',
-    // Heat Pump
-    'heat-pump': 'Heat Pump Installation',
-    'heatpump': 'Heat Pump Installation',
-    'heat-pump-installation': 'Heat Pump Installation',
-    // IAQ
-    'iaq': 'Indoor Air Quality',
-    'air-quality': 'Indoor Air Quality',
-    'indoor-air-quality': 'Indoor Air Quality',
-    // Ductwork
-    'duct': 'Ductwork / Airflow',
-    'ducts': 'Ductwork / Airflow',
-    'ductwork': 'Ductwork / Airflow',
-    'airflow': 'Ductwork / Airflow',
-    // Maintenance
-    'maintenance': 'Maintenance',
-    'tune-up': 'Maintenance',
-    'tuneup': 'Maintenance',
-    'tune': 'Maintenance'
-  };
+  // Keyword → canonical service mapping.
+  // Patterns are tested against a hyphen-padded normalized string so they
+  // match equally well in plain values ("ac"), compound values ("ac-install"),
+  // and ad-tracking strings ("utm_campaign=ac_orlando_install").
+  // Order matters: more specific intent (install/repair/replace) is matched
+  // before the bare "ac" keyword so "ac-install" → AC Installation, not AC.
+  var KEYWORD_PATTERNS = [
+    { pattern: /-(mini-?split|ductless)-/, value: 'Mini Split Installation' },
+    { pattern: /-(heat-?pump)-/, value: 'Heat Pump Installation' },
+    { pattern: /-(iaq|air-quality|indoor-air)-/, value: 'Indoor Air Quality' },
+    { pattern: /-(ductwork|airflow|ducts|duct)-/, value: 'Ductwork / Airflow' },
+    { pattern: /-(maintenance|tune-?up|tuneup)-/, value: 'Maintenance' },
+    { pattern: /-(replacement|replace|change-?out)-/, value: 'AC Replacement' },
+    { pattern: /-(repair|fix|no-cool|not-cooling|broken-ac)-/, value: 'AC Repair' },
+    { pattern: /-(installation|install|new-ac|new-system|ac-install)-/, value: 'AC Installation' },
+    { pattern: /-(ac|a-c|aircon|air-conditioner|hvac)-/, value: 'AC Installation' }
+  ];
 
-  function normalizeAlias(value) {
+  // Normalize an arbitrary service hint (param value, ad name, attribute, etc.)
+  // into a canonical SERVICE_OPTIONS value. Returns '' if no match.
+  function normalizeService(value) {
     if (!value) return '';
     var raw = String(value).trim();
     if (!raw) return '';
-    // Exact match against canonical list (case-insensitive)
+
+    // Exact canonical match (case-insensitive)
     for (var i = 0; i < SERVICE_OPTIONS.length; i++) {
       if (raw.toLowerCase() === SERVICE_OPTIONS[i].toLowerCase()) return SERVICE_OPTIONS[i];
     }
-    // Try alias key: lowercase, replace spaces/underscores with hyphens
-    var key = raw.toLowerCase().replace(/[_\s]+/g, '-');
-    return SERVICE_ALIASES[key] || '';
+
+    // Normalize separators: lowercase, treat _ . / \ space as hyphens
+    var normalized = raw.toLowerCase().replace(/[_./\\\s]+/g, '-');
+    // Pad with hyphens so word-boundary patterns work uniformly
+    var padded = '-' + normalized + '-';
+
+    for (var j = 0; j < KEYWORD_PATTERNS.length; j++) {
+      if (KEYWORD_PATTERNS[j].pattern.test(padded)) {
+        return KEYWORD_PATTERNS[j].value;
+      }
+    }
+
+    return '';
   }
 
   // Resolve a service value using priority:
   // (a) ?service= query param
-  // (b) data-service-default attribute on the form
-  // (c) existing non-empty field value
-  // (d) final fallback: 'AC Installation'
+  // (b) ?utm_campaign= or ?ad_name= query param (if it contains a known keyword)
+  // (c) data-service-default attribute on the form
+  // (d) existing non-empty field value
+  // (e) final fallback: 'AC Installation'
   function resolveDefaultService(form) {
-    var fromQs = normalizeAlias(getQueryParam('service'));
+    var fromQs = normalizeService(getQueryParam('service'));
     if (fromQs) return fromQs;
 
-    var fromAttr = normalizeAlias(form.getAttribute('data-service-default'));
+    var fromCampaign = normalizeService(getQueryParam('utm_campaign'));
+    if (fromCampaign) return fromCampaign;
+
+    var fromAdName = normalizeService(getQueryParam('ad_name'));
+    if (fromAdName) return fromAdName;
+
+    var fromAttr = normalizeService(form.getAttribute('data-service-default'));
     if (fromAttr) return fromAttr;
 
     var existing = form.querySelector('[name="service"]');
     if (existing && existing.value) {
-      var fromExisting = normalizeAlias(existing.value);
+      var fromExisting = normalizeService(existing.value);
       if (fromExisting) return fromExisting;
       // Existing value didn't normalize — accept it as-is if non-empty
       if (existing.value.trim()) return existing.value.trim();
