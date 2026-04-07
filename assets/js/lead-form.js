@@ -98,20 +98,14 @@
     return SERVICE_ALIASES[key] || '';
   }
 
-  // Resolve a default service value using priority:
+  // Resolve a service value using priority:
   // (a) ?service= query param
-  // (b) ?utm_campaign= or ?adset= query param (if alias matches)
-  // (c) data-service-default attribute on the form
-  // (d) existing input/select value if already canonical
+  // (b) data-service-default attribute on the form
+  // (c) existing non-empty field value
+  // (d) final fallback: 'AC Installation'
   function resolveDefaultService(form) {
     var fromQs = normalizeAlias(getQueryParam('service'));
     if (fromQs) return fromQs;
-
-    var fromCampaign = normalizeAlias(getQueryParam('utm_campaign'));
-    if (fromCampaign) return fromCampaign;
-
-    var fromAdset = normalizeAlias(getQueryParam('adset'));
-    if (fromAdset) return fromAdset;
 
     var fromAttr = normalizeAlias(form.getAttribute('data-service-default'));
     if (fromAttr) return fromAttr;
@@ -120,9 +114,11 @@
     if (existing && existing.value) {
       var fromExisting = normalizeAlias(existing.value);
       if (fromExisting) return fromExisting;
+      // Existing value didn't normalize — accept it as-is if non-empty
+      if (existing.value.trim()) return existing.value.trim();
     }
 
-    return '';
+    return 'AC Installation';
   }
 
   var STYLE_ID = 'lead-form-styles';
@@ -247,12 +243,19 @@
       return el ? trim(el.value) : '';
     }
 
+    // Hard safety net: service must never be blank in the payload.
+    // Fall back to data-service-default, then "AC Installation".
+    var serviceValue = val('service');
+    if (!serviceValue) {
+      serviceValue = trim(form.getAttribute('data-service-default')) || 'AC Installation';
+    }
+
     return {
       name: val('name'),
       phone: digitsOnly(val('phone')),
       zip: val('zip'),
       email: val('email'),
-      service: val('service'),
+      service: serviceValue,
       source: val('source'),
       page_url: window.location.href,
       utm_source: getQueryParam('utm_source'),
