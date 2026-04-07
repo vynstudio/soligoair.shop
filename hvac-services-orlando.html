@@ -56,23 +56,26 @@
       gtag('config', 'AW-17179141807');
     </script>
 
-    <!-- Meta Pixel -->
+    <!-- Meta Pixel — stub now, real script loaded after first paint -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      // Define fbq stub immediately so any inline calls queue safely.
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document);
       fbq('init', '1231230569192614');
       fbq('track', 'PageView');
+      // Defer actual fbevents.js load to after LCP — uses requestIdleCallback or 1500ms fallback
+      function loadFbPixel(){
+        if(window._fbPixelLoaded)return;window._fbPixelLoaded=true;
+        var s=document.createElement('script');s.async=true;
+        s.src='https://connect.facebook.net/en_US/fbevents.js';
+        document.head.appendChild(s);
+      }
+      if('requestIdleCallback' in window){requestIdleCallback(loadFbPixel,{timeout:2500});}
+      else{setTimeout(loadFbPixel,1500);}
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/forms.css">
 
     <style>

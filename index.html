@@ -43,8 +43,12 @@
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
 
-    <!-- Preload critical assets -->
-    <link rel="preload" as="image" href="/assets/images/hero-technician-maintenance.jpg">
+    <!-- Preload critical LCP image — responsive WebP via imagesrcset -->
+    <link rel="preload" as="image"
+          imagesrcset="/assets/images/hero-technician-maintenance-mobile.webp 960w, /assets/images/hero-technician-maintenance.webp 1920w"
+          imagesizes="100vw"
+          href="/assets/images/hero-technician-maintenance.webp"
+          fetchpriority="high">
     <link rel="preload" as="style" href="/css/style.css">
 
     <!-- Schema.org LocalBusiness structured data -->
@@ -105,7 +109,7 @@
     <!-- Google Fonts — display swap for fast render -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/forms.css">
 
     <style>
@@ -152,9 +156,9 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                                 <!-- logo begin -->
                                 <div id="logo">
                                     <a href="index.html">
-                                        <img class="logo-main" src="icon-v2.png" alt="Soligo Air" style="height:42px">
-                                        <img class="logo-scroll" src="icon-v2.png" alt="Soligo Air" style="height:42px">
-                                        <img class="logo-mobile" src="icon-v2.png" alt="Soligo Air" style="height:42px">
+                                        <img class="logo-main" src="icon-v2.png" alt="Soligo Air" width="42" height="42" style="height:42px">
+                                        <img class="logo-scroll" src="icon-v2.png" alt="Soligo Air" width="42" height="42" loading="lazy" style="height:42px">
+                                        <img class="logo-mobile" src="icon-v2.png" alt="Soligo Air" width="42" height="42" loading="lazy" style="height:42px">
                                     </a>
                                 </div>
                                 <!-- logo close -->
@@ -243,7 +247,19 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                 </style>
 
                 <div class="hero-bg">
-                    <img src="assets/images/hero-technician-maintenance.jpg" alt="Soligo Air technician performing AC maintenance in Orlando, FL">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="assets/images/hero-technician-maintenance-mobile.webp 960w, assets/images/hero-technician-maintenance.webp 1920w"
+                                sizes="100vw">
+                        <source type="image/jpeg"
+                                srcset="assets/images/hero-technician-maintenance-mobile.jpg 960w, assets/images/hero-technician-maintenance.jpg 1920w"
+                                sizes="100vw">
+                        <img src="assets/images/hero-technician-maintenance.jpg"
+                             alt="Soligo Air technician performing AC maintenance in Orlando, FL"
+                             width="1920" height="1302"
+                             fetchpriority="high"
+                             decoding="async">
+                    </picture>
                 </div>
                 <div class="hero-inner">
                     <h1>AC Repair &amp; HVAC Services in Orlando, FL</h1>
