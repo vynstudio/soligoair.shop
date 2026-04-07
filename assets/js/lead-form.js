@@ -207,11 +207,16 @@
           }
 
           // Inline success
+          // NEW: restore button + submitting flag for inline success
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = defaultBtnText;
+          }
+          form.dataset.submitting = '0';
+
           var successMsg = form.getAttribute('data-success-message') ||
             "Thanks! We'll call you shortly.";
           setMessage(form, successMsg, 'success');
-          if (btn) { btn.disabled = false; btn.textContent = defaultBtnText; }
-          form.dataset.submitting = '0';
           form.reset();
         } else {
           var errMsg = (json && json.error) || 'Something went wrong. Please call (321) 384-7868.';
