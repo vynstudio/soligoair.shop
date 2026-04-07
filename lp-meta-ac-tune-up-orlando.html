@@ -216,9 +216,9 @@ select.lp-input{cursor:pointer}
                 <span class="lp-form-tag">Flat $89 · 60-Sec Booking</span>
                 <h3 class="lp-form-title">Book Your $89 Tune-Up</h3>
                 <p class="lp-form-sub">Tell us about your system — we'll call to confirm and schedule.</p>
-                <form id="lead-form" autocomplete="on" novalidate>
+                <form id="lead-form" autocomplete="on" novalidate data-lp-form data-source="meta-ads-ac-tune-up-orlando">
                     <div class="lp-form-row">
-                        <input type="text" name="fullName" placeholder="Full Name *" required class="lp-input">
+                        <input type="text" name="name" placeholder="Full Name *" required class="lp-input">
                         <input type="tel" name="phone" placeholder="Phone Number *" required inputmode="tel" class="lp-input">
                         <div class="lp-grid-2">
                             <input type="text" name="zip" placeholder="ZIP Code *" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" class="lp-input">
@@ -458,42 +458,18 @@ select.lp-input{cursor:pointer}
 <a id="top" href="#" style="position:absolute;top:0;left:0"></a>
 
 <script>
-document.getElementById('lead-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var btn = this.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    var originalText = btn.textContent;
-    btn.textContent = 'Sending…';
-    var data = Object.fromEntries(new FormData(this));
-    data.source = 'meta-ads-ac-tune-up-orlando';
-    try {
-        var res = await fetch('/.netlify/functions/submit-lead', {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify(data)
-        });
-        var json = await res.json();
-        if (json.success) {
-            this.innerHTML = '<div style="text-align:center;padding:32px 0;"><div style="font-size:48px;margin-bottom:12px">✓</div><div style="color:#002C6D;font-weight:800;font-size:18px;margin-bottom:6px">Got it!</div><div style="color:#8a96aa;font-size:14px">We\'ll call you shortly to schedule your tune-up.</div></div>';
-            this.scrollIntoView({behavior:'smooth',block:'center'});
-        } else { throw new Error(json.message); }
-    } catch(err) {
-        btn.disabled = false;
-        btn.textContent = originalText;
-        alert('Something went wrong. Please call us at (321) 384-7868.');
-    }
-});
 
 document.querySelectorAll('a[href="#top"]').forEach(function(a){
     a.addEventListener('click', function(e){
         e.preventDefault();
         document.querySelector('.lp-form-card').scrollIntoView({behavior:'smooth',block:'center'});
-        var firstInput = document.querySelector('#lead-form input[name="fullName"]');
+        var firstInput = document.querySelector('#lead-form input[name="name"]');
         if (firstInput) setTimeout(function(){firstInput.focus()}, 600);
     });
 });
 </script>
 
+<script src="js/lp-form-validate.js" defer></script>
 <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
 </html>

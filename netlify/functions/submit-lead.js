@@ -31,12 +31,16 @@ function escapeHtml(str) {
 // Input validation
 function validateLead(body) {
   const errors = [];
-  const required = ['fullName', 'phone'];
 
-  for (const field of required) {
-    if (!body[field] || String(body[field]).trim() === '') {
-      errors.push(`Missing required field: ${field}`);
-    }
+  // Accept both `name` (new schema) and `fullName` (legacy schema)
+  const nameValue = (body.name || body.fullName || '').trim();
+  if (nameValue.length < 2) errors.push('Missing required field: name');
+
+  if (!body.phone || String(body.phone).trim() === '') {
+    errors.push('Missing required field: phone');
+  } else {
+    const digits = String(body.phone).replace(/\D/g, '');
+    if (digits.length !== 10) errors.push('Invalid phone number');
   }
 
   if (body.email) {
@@ -46,9 +50,9 @@ function validateLead(body) {
     }
   }
 
-  if (body.phone) {
-    const digits = body.phone.replace(/\D/g, '');
-    if (digits.length < 10) errors.push('Invalid phone number');
+  // ZIP is optional for legacy forms; if present, validate
+  if (body.zip && !/^\d{5}$/.test(String(body.zip).trim())) {
+    errors.push('Invalid ZIP code');
   }
 
   const MAX_LENGTH = 500;
@@ -87,13 +91,23 @@ exports.handler = async (event) => {
     return { statusCode: 400, headers, body: JSON.stringify({ success: false, message: validationErrors[0] }) };
   }
 
+  // Normalize: prefer `name`, fall back to legacy `fullName`
+  const rawName = (body.name || body.fullName || '').trim();
+  const rawPhone = String(body.phone || '').replace(/\D/g, '');
+
   const lead = {
-    fullName: escapeHtml(body.fullName?.trim()),
-    phone: escapeHtml(body.phone?.trim()),
+    fullName: escapeHtml(rawName),
+    name: escapeHtml(rawName),
+    phone: escapeHtml(rawPhone),
+    zip: escapeHtml(String(body.zip || '').trim()),
     email: escapeHtml(body.email?.trim() || ''),
     service: escapeHtml(body.service?.trim() || 'Not specified'),
     message: escapeHtml(body.message?.trim() || ''),
     source: escapeHtml(body.source?.trim() || 'Website'),
+    homeType: escapeHtml(body.homeType?.trim() || ''),
+    systemType: escapeHtml(body.systemType?.trim() || ''),
+    issue: escapeHtml(body.issue?.trim() || ''),
+    timeline: escapeHtml(body.timeline?.trim() || ''),
     timestamp: new Date().toISOString(),
     ip: event.headers['x-forwarded-for'] || 'unknown'
   };
@@ -108,11 +122,21 @@ exports.handler = async (event) => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            first_name: lead.fullName.split(' ')[0],
-            last_name: lead.fullName.split(' ').slice(1).join(' ') || '',
+            first_name: lead.name.split(' ')[0],
+            last_name: lead.name.split(' ').slice(1).join(' ') || '',
             phone: lead.phone,
             email: lead.email,
-            custom_fields: { service: lead.service, message: lead.message, source: lead.source }
+            postal_code: lead.zip,
+            custom_fields: {
+              service: lead.service,
+              zip: lead.zip,
+              issue: lead.issue,
+              system_type: lead.systemType,
+              home_type: lead.homeType,
+              timeline: lead.timeline,
+              message: lead.message,
+              source: lead.source
+            }
           })
         });
         results.ghl = ghlRes.ok;
@@ -133,14 +157,19 @@ exports.handler = async (event) => {
           body: JSON.stringify({
             from: process.env.FROM_EMAIL || 'leads@soligoair.shop',
             to: [process.env.NOTIFY_EMAIL],
-            subject: `🔥 New Lead: ${lead.fullName} — ${lead.service}`,
+            subject: `🔥 New Lead: ${lead.name} — ${lead.service}`,
             html: `
               <h2>New Lead from soligoair.shop</h2>
               <table>
-                <tr><td><strong>Name:</strong></td><td>${lead.fullName}</td></tr>
+                <tr><td><strong>Name:</strong></td><td>${lead.name}</td></tr>
                 <tr><td><strong>Phone:</strong></td><td>${lead.phone}</td></tr>
+                <tr><td><strong>ZIP:</strong></td><td>${lead.zip || 'Not provided'}</td></tr>
                 <tr><td><strong>Email:</strong></td><td>${lead.email || 'Not provided'}</td></tr>
                 <tr><td><strong>Service:</strong></td><td>${lead.service}</td></tr>
+                ${lead.issue ? `<tr><td><strong>Issue:</strong></td><td>${lead.issue}</td></tr>` : ''}
+                ${lead.systemType ? `<tr><td><strong>System Type:</strong></td><td>${lead.systemType}</td></tr>` : ''}
+                ${lead.homeType ? `<tr><td><strong>Home Type:</strong></td><td>${lead.homeType}</td></tr>` : ''}
+                ${lead.timeline ? `<tr><td><strong>Timeline:</strong></td><td>${lead.timeline}</td></tr>` : ''}
                 <tr><td><strong>Message:</strong></td><td>${lead.message || 'None'}</td></tr>
                 <tr><td><strong>Source:</strong></td><td>${lead.source}</td></tr>
                 <tr><td><strong>Time:</strong></td><td>${lead.timestamp}</td></tr>
