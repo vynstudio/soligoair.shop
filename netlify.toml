@@ -86,6 +86,12 @@
   to = "/service-repair"
   status = 301
 
+# Google Ads funnel alias → canonical landing page
+[[redirects]]
+  from = "/funnel"
+  to = "/ac-repair-orlando"
+  status = 301
+
 [[redirects]]
   from = "/hvac"
   to = "/"
