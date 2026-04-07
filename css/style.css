@@ -779,13 +779,13 @@ header .header-col.mid .social-icons {
 #mainmenu ul {
   margin: 0px 0px;
   padding: 0px;
-  height: 30px;
+  height: auto;
   background: #ffffff;
   color: var(--body-font-color);
 }
 
 #mainmenu ul:not(.mega) {
-  border: solid 1px #dddddd;
+  border: none;
 }
 
 .dark-scheme #mainmenu ul {
@@ -942,15 +942,16 @@ header.header-light #mainmenu a {
 }
 
 #mainmenu li li a {
-  padding: 5px 15px;
+  padding: 9px 20px;
   border-top: none;
-  color: #606060;
+  color: #3d4f6a;
   width: 100%;
   border-left: none;
   text-align: left;
-  font-weight: normal;
-  border-bottom: solid 1px rgba(255, 255, 255, .1);
+  font-weight: 500;
+  border-bottom: none;
   letter-spacing: 0;
+  transition: background .15s, color .15s;
 }
 
 #mainmenu li:last-child>a {
@@ -983,14 +984,17 @@ header.header-light #mainmenu a {
 }
 
 #mainmenu li ul {
-  width: 190px;
+  width: 220px;
   height: auto;
   position: absolute;
   left: 0px;
   z-index: 10;
   visibility: hidden;
   opacity: 0;
-  border-radius: 3px;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,44,109,.12);
+  padding: 8px 0;
+  border: none;
 }
 
 #mainmenu ul li b {

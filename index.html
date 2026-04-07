@@ -124,7 +124,11 @@ footer { background: linear-gradient(160deg, #001228 0%, #001836 100%) !importan
 html, body { overflow-x: hidden; overflow-y: auto; }
 /* Full-bleed hero: header overlays hero with no white band */
 header.transparent { position: absolute; top: 0; left: 0; width: 100%; background: transparent !important; border-bottom: none !important; box-shadow: none !important; }
-header.transparent:not(.smaller) #mainmenu a, header.transparent:not(.smaller) .btn-main { color: #fff; }
+header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.smaller) .btn-main { color: #fff; }
+/* Services dropdown — compact, readable, polished */
+#mainmenu li ul { height: auto !important; min-height: 0; width: 220px; background: #fff; border: none; border-radius: 10px; box-shadow: 0 8px 32px rgba(0,44,109,.12); padding: 8px 0; overflow: visible; }
+#mainmenu li li a.menu-item { display: block; padding: 9px 20px; color: #3d4f6a !important; font-size: 14px; font-weight: 500; white-space: nowrap; transition: background .15s, color .15s; border-bottom: none !important; }
+#mainmenu li li a.menu-item:hover { background: #F75600 !important; color: #fff !important; }
     </style>
 
 </head>
