@@ -70,10 +70,51 @@
   status = 301
 
 # Pretty URLs (remove .html extension)
+# IMPORTANT: use /*.html with :splat — /:page.html parses as a placeholder
+# named "page.html" and silently creates a redirect loop. Use *.html instead.
 [[redirects]]
-  from = "/:page.html"
-  to = "/:page"
+  from = "/*.html"
+  to = "/:splat"
   status = 301
+  force = true
+
+# Short ad-campaign aliases → conversion landing pages
+[[redirects]]
+  from = "/repair"
+  to = "/ac-repair-orlando"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tune-up"
+  to = "/ac-tune-up-orlando"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/installation"
+  to = "/ac-installation-orlando"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/replacement"
+  to = "/ac-replacement-orlando"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/air-quality"
+  to = "/service-iaq"
+  status = 301
+  force = true
+
+# Google Ads funnel alias → canonical landing page
+[[redirects]]
+  from = "/funnel"
+  to = "/ac-repair-orlando"
+  status = 301
+  force = true
 
 # Common alias redirects
 [[redirects]]
@@ -84,12 +125,6 @@
 [[redirects]]
   from = "/ac-repair"
   to = "/service-repair"
-  status = 301
-
-# Google Ads funnel alias → canonical landing page
-[[redirects]]
-  from = "/funnel"
-  to = "/ac-repair-orlando"
   status = 301
 
 [[redirects]]

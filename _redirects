@@ -2,15 +2,22 @@
 https://www.soligoair.shop/*  https://soligoair.shop/:splat  301!
 
 # Pretty URLs (strip .html extension)
-/:page.html  /:page  301
+# Use /*.html with :splat — Netlify treats :name.html as a placeholder
+# named "name.html" which silently breaks. /*.html → /:splat is correct.
+/*.html  /:splat  301!
+
+# Short ad-campaign aliases → conversion landing pages
+/repair         /ac-repair-orlando         301!
+/tune-up        /ac-tune-up-orlando        301!
+/installation   /ac-installation-orlando   301!
+/replacement    /ac-replacement-orlando    301!
+/air-quality    /service-iaq               301!
+/funnel         /ac-repair-orlando         301!
 
 # Common alias redirects
-/home  /  301
-/ac-repair  /service-repair  301
-/hvac  /  301
-
-# Google Ads funnel aliases
-/funnel  /ac-repair-orlando  301
+/home       /                  301
+/ac-repair  /service-repair    301
+/hvac       /                  301
 
 # 404 fallback (must be last)
 /*  /404.html  404
