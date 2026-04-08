@@ -60,12 +60,12 @@ Image safety rules:
 
 Create three Product entries in Pencil so each ad set inherits the right offer details.
 
-#### Product A · "$69 AC Tune-Up"
+#### Product A · "$89 AC Tune-Up"
 ```
-Name: $69 AC Tune-Up
-Price: $69 (regular $129)
+Name: $89 AC Tune-Up
+Price: $89
 Description: 21-point safety check, refrigerant level test, coil cleaning, capacitor test, drain line flush, thermostat calibration. Same-week scheduling in Orlando + Central FL.
-Offer line: $69 AC Tune-Up (Reg. $129) · First-time Orlando homeowners
+Offer line: $89 AC Tune-Up · Orlando homeowners
 Landing page: https://soligoair.shop/lp-meta-ac-tune-up-orlando
 ```
 
@@ -146,35 +146,35 @@ soligo_{TUNEUP|FINANCE|MEMBER}_{T1..T5|F1..F5|M1..M5}_{1x1|4x5|9x16}_v1
 
 ## 2 · SET 1 — Tune-Up Trip-Wire (5 creatives)
 
-> **Product:** A · "$69 AC Tune-Up"  ·  **Audience:** 1 · "Tune-Up Prospect"
+> **Product:** A · "$89 AC Tune-Up"  ·  **Audience:** 1 · "Tune-Up Prospect"
 > **Landing page:** https://soligoair.shop/lp-meta-ac-tune-up-orlando
 
 ---
 
-### T1 · "$69 Big Number"
+### T1 · "$89 Big Number"
 
 **Creative Brief**
 ```
-Bold-typography ad selling a $69 AC tune-up to Orlando homeowners. The hero element
-is the price — a massive "$69" stamp dominating the canvas. The image must communicate
+Bold-typography ad selling a $89 AC tune-up to Orlando homeowners. The hero element
+is the price — a massive "$89" stamp dominating the canvas. The image must communicate
 "this is the price, no fine print" in under one second. Strong, clean, confident — not
 a flyer aesthetic. Modern advertising design, not local-business clipart.
 ```
 
 **Visual Direction (image prompt)**
 ```
-Bold flat-design advertising creative, huge number "$69" in bright orange (#F75600)
+Bold flat-design advertising creative, huge number "$89" in bright orange (#F75600)
 centered on white background, small line-art AC condenser icon top-right corner,
 clean Poppins-style sans-serif typography, soft drop shadow under the number,
 professional HVAC brand aesthetic, premium minimal layout, plenty of negative space,
 high contrast, square 1:1 format
 ```
 
-**Headline (primary):** `$69 AC Tune-Up Orlando`
-**Headline alts:** `Beat the Heat — $69` · `Save $1,000s for $69`
+**Headline (primary):** `$89 AC Tune-Up Orlando`
+**Headline alts:** `Beat the Heat — $89` · `Save $1,000s for $89`
 **Primary text:**
 > Most AC breakdowns happen on the hottest day — and they're almost always preventable.
-> $69 catches small problems before they cost you thousands. 21-point safety check by
+> $89 catches small problems before they cost you thousands. 21-point safety check by
 > a licensed Orlando HVAC tech. Same-week scheduling.
 > Licensed FL #CAC1823002.
 
@@ -189,7 +189,7 @@ high contrast, square 1:1 format
 Trust-driven ad showing a real, friendly Orlando HVAC technician at work on an outdoor
 AC unit. The technician is the proof — competent, calm, approachable, not corporate.
 Florida suburban backyard setting with palm trees. Communicates "real local company,
-real techs, $69 is real."
+real techs, $89 is real."
 ```
 
 **Visual Direction (image prompt)**
@@ -202,10 +202,10 @@ stucco home in the background, golden hour lighting, shallow depth of field, sha
 focus, professional advertising photography, square 1:1 format
 ```
 
-**Headline (primary):** `Real Tech, $69 Visit`
-**Headline alts:** `Orlando Licensed — $69` · `No Upsell, Just $69`
+**Headline (primary):** `Real Tech, $89 Visit`
+**Headline alts:** `Orlando Licensed — $89` · `No Upsell, Just $89`
 **Primary text:**
-> $69 — by a real licensed Orlando HVAC tech, not a 5-minute "courtesy check." Includes
+> $89 — by a real licensed Orlando HVAC tech, not a 5-minute "courtesy check." Includes
 > 21 real diagnostics, written report, and zero upsell pressure. Family-owned. Same week.
 > Licensed FL #CAC1823002.
 
@@ -219,7 +219,7 @@ focus, professional advertising photography, square 1:1 format
 ```
 Proof-driven ad. A side-by-side photo of a dirty AC coil vs the same coil after
 a tune-up cleaning. The visual does the persuading — shows ROI without copy doing
-the heavy lifting. Demonstrates that $69 buys real, visible work.
+the heavy lifting. Demonstrates that $89 buys real, visible work.
 ```
 
 **Visual Direction (image prompt)**
@@ -232,10 +232,10 @@ lighting, sharp focus, advertising still life, white background, square 1:1 form
 ```
 
 **Headline (primary):** `This Costs You 30%`
-**Headline alts:** `Dirty Coil = High Bill` · `$69 Cuts Your Bill`
+**Headline alts:** `Dirty Coil = High Bill` · `$89 Cuts Your Bill`
 **Primary text:**
 > A dirty AC coil makes your system work 30% harder — and your power bill 30% bigger.
-> $69 tune-up includes coil cleaning. Pays for itself in one Florida summer.
+> $89 tune-up includes coil cleaning. Pays for itself in one Florida summer.
 > Licensed FL #CAC1823002.
 
 **CTA button:** `Schedule Tune-Up`
@@ -246,7 +246,7 @@ lighting, sharp focus, advertising still life, white background, square 1:1 form
 
 **Creative Brief**
 ```
-Specificity-driven ad. Lists exactly what's in the $69 tune-up so the prospect knows
+Specificity-driven ad. Lists exactly what's in the $89 tune-up so the prospect knows
 this isn't a 5-minute drive-by. Visual is a clean infographic checklist — credibility
 through concreteness. Differentiates Soligo Air from "free tune-up" scams.
 ```
@@ -257,16 +257,16 @@ Clean modern infographic-style advertising creative, vertical white card with 21
 checkmarks listing AC tune-up items: "Refrigerant Level Check", "Coil Cleaning",
 "Capacitor Test", "Drain Line Flush", "Thermostat Calibration", "Electrical Tightening",
 "Filter Inspection", "Blower Motor Test", "Compressor Amp Draw", and 12 more.
-Header text "21-POINT AC SAFETY CHECK" in dark navy (#002C6D), bright orange "$69" badge
+Header text "21-POINT AC SAFETY CHECK" in dark navy (#002C6D), bright orange "$89" badge
 in top-right corner of the card, white background, square 1:1, modern flat design,
 Poppins font
 ```
 
-**Headline (primary):** `What $69 Gets You`
-**Headline alts:** `21 Real Checks — $69` · `Not a Sticker. A Tune-Up.`
+**Headline (primary):** `What $89 Gets You`
+**Headline alts:** `21 Real Checks — $89` · `Not a Sticker. A Tune-Up.`
 **Primary text:**
 > Most "tune-ups" are 5 minutes and a sticker. Ours is 21 real diagnostics — refrigerant,
-> coils, capacitors, drain line, thermostat — by a licensed FL tech. $69. Book yours.
+> coils, capacitors, drain line, thermostat — by a licensed FL tech. $89. Book yours.
 > Licensed FL #CAC1823002.
 
 **CTA button:** `See What's Included`
@@ -278,7 +278,7 @@ Poppins font
 **Creative Brief**
 ```
 Social-proof ad. A real customer testimonial card with a specific dollar-amount save
-story. Communicates "this is what $69 prevents." High-trust, low-pressure, very HVAC.
+story. Communicates "this is what $89 prevents." High-trust, low-pressure, very HVAC.
 ```
 
 **Visual Direction (image prompt)**
@@ -291,10 +291,10 @@ small circular customer avatar with "C" initial in orange, premium minimalist
 advertising design, square 1:1 format, generous white space
 ```
 
-**Headline (primary):** `$69 Saved Carlos $1,000`
-**Headline alts:** `Real Story — Real Save` · `Orlando 5★ — $69`
+**Headline (primary):** `$89 Saved Carlos $1,000`
+**Headline alts:** `Real Story — Real Save` · `Orlando 5★ — $89`
 **Primary text:**
-> Carlos's tech caught a failing capacitor during his $69 tune-up. The fix took 15 minutes.
+> Carlos's tech caught a failing capacitor during his $89 tune-up. The fix took 15 minutes.
 > The emergency repair would've been $1,000+ on a brutal Sunday. Book yours before summer.
 > Licensed FL #CAC1823002.
 
@@ -618,7 +618,7 @@ For each generated creative, verify before approving for ad upload:
 - [ ] Phone visible: `(321) 384-7868`
 - [ ] Brand colors only (#F75600, #002C6D, white) — flag any rogue palettes
 - [ ] Text overlay <20% of canvas (Meta auto-throttle threshold)
-- [ ] No misspellings ("Orlando", "tune-up", "$69", "$29/mo")
+- [ ] No misspellings ("Orlando", "tune-up", "$89", "$29/mo")
 - [ ] Faces/imagery match the customer base (avoid generic stock looks)
 - [ ] All 3 aspect ratios exported (1:1, 4:5, 9:16)
 - [ ] Filename matches naming convention
