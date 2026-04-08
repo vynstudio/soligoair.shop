@@ -528,28 +528,33 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                 .quote-split__content .qs-benefits svg{width:18px;height:18px;flex-shrink:0}
                 .quote-split__content .qs-phone{font-size:15px;color:#6B7A99}
                 .quote-split__content .qs-phone a{color:#F75600;font-weight:700;text-decoration:none;font-size:18px}
-                .quote-card{background:#fff;border:1px solid #e4e9f2;border-radius:18px;padding:28px 24px;max-width:480px;width:100%;box-shadow:0 8px 40px rgba(0,44,109,0.08),0 1px 3px rgba(0,44,109,0.04)}
-                .quote-card h3{color:#002C6D;font-weight:800;font-size:1.25rem;margin-bottom:4px}
-                .quote-card .quote-sub{color:#8a96aa;font-size:13px;margin-bottom:18px}
-                .quote-card .form-shell{gap:0.6rem}
-                .quote-card .form-field{gap:0.25rem}
-                .quote-card .form-label{font-size:0.85rem}
-                .quote-card .form-control{min-height:44px;padding:0.6rem 0.85rem;border-radius:10px}
-                .quote-card .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem}
-                @media(max-width:480px){.quote-card .form-row-2{grid-template-columns:1fr}}
-.quote-card .qf-input::placeholder{color:#a0aab8}
-.quote-card select.qf-input{color:#a0aab8}
-.quote-card .qf-btn{width:100%;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;border:none;padding:15px;font-size:15px;font-weight:800;border-radius:10px;cursor:pointer;font-family:inherit;transition:transform 0.15s,box-shadow 0.15s}
-                .quote-card .qf-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(247,86,0,0.25)}
+                .quote-card{background:#fff;border:1px solid #e4e9f2;border-radius:20px;padding:48px 44px;max-width:580px;width:100%;box-shadow:0 30px 80px rgba(0,44,109,0.20),0 6px 16px rgba(0,44,109,0.08);position:relative}
+                .quote-card::before{content:'';position:absolute;top:-3px;left:0;right:0;height:7px;border-radius:20px 20px 0 0;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%)}
+                .quote-card .quote-tag{display:inline-block;background:rgba(247,86,0,0.1);color:#F75600;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:1px;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+                .quote-card h3{color:#002C6D;font-weight:800;font-size:1.85rem;margin-bottom:8px;letter-spacing:-0.4px;line-height:1.15}
+                .quote-card .quote-sub{color:#6B7A99;font-size:15px;margin-bottom:26px;line-height:1.55}
+                .quote-card .form-shell{gap:0.95rem}
+                .quote-card .form-field{gap:0.4rem}
+                .quote-card .form-label{font-size:0.9rem;font-weight:700;color:#002C6D;letter-spacing:0.1px}
+                .quote-card .form-control{min-height:54px;padding:0.95rem 1.1rem;border-radius:12px;border:1.5px solid #d8e0ec;font-size:15px;background:#fff;transition:border-color .15s,box-shadow .15s}
+                .quote-card .form-control:hover{border-color:#b8c5d6}
+                .quote-card .form-control:focus{outline:none;border-color:#F75600;box-shadow:0 0 0 4px rgba(247,86,0,0.14)}
+                .quote-card .form-control::placeholder{color:#a0aab8}
+                .quote-card .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem}
+                .quote-card .qf-btn{width:100%;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;border:none;padding:20px;font-size:16px;font-weight:800;border-radius:12px;cursor:pointer;font-family:inherit;transition:transform 0.15s,box-shadow 0.15s;min-height:60px;letter-spacing:0.2px;box-shadow:0 10px 28px rgba(247,86,0,0.38)}
+                .quote-card .qf-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(247,86,0,0.48)}
                 .quote-card .qf-btn:active{transform:translateY(0)}
                 .quote-card .qf-btn:disabled{opacity:0.7;cursor:not-allowed;transform:none}
+                .quote-card .qf-foot{text-align:center;font-size:12px;color:#a0aab8;margin-top:12px;line-height:1.5}
                 @media(max-width:900px){
                     .quote-split{grid-template-columns:1fr;gap:32px;padding:48px 20px}
                     .quote-split__form{display:flex;justify-content:center}
-                    .quote-card{max-width:480px}
+                    .quote-card{max-width:520px}
                 }
                 @media(max-width:600px){
-                    .quote-card{padding:28px 20px;border-radius:14px}
+                    .quote-card{padding:36px 26px;border-radius:16px}
+                    .quote-card h3{font-size:1.55rem}
+                    .quote-card .form-row-2{grid-template-columns:1fr}
                 }
                 </style>
 
@@ -567,8 +572,9 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                     </div>
                     <div class="quote-split__form">
                         <div class="quote-card">
-                            <h3>Request a Quote</h3>
-                            <p class="quote-sub">We'll get back to you fast.</p>
+                            <span class="quote-tag">★ Free Quote · 60-Sec Form</span>
+                            <h3>Request Your Free Quote</h3>
+                            <p class="quote-sub">Tell us what you need and we'll call you back fast — no pressure, no surprises.</p>
                             <form class="form-shell" id="lead-form" autocomplete="on">
                                 <div class="form-row-2">
                                     <div class="form-field">
@@ -600,8 +606,9 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                                     </div>
                                 </div>
                                 <div class="form-actions">
-                                    <button type="submit" class="qf-btn">Get My Free Quote</button>
+                                    <button type="submit" class="qf-btn">Get My Free Quote →</button>
                                 </div>
+                                <p class="qf-foot">By submitting, you agree to be contacted by Soligo Air. We'll never share your info.</p>
                             </form>
                         </div>
                     </div>
