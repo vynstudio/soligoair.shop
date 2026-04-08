@@ -534,9 +534,15 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                 .quote-split__content .qs-benefits svg{width:18px;height:18px;flex-shrink:0}
                 .quote-split__content .qs-phone{font-size:15px;color:#6B7A99}
                 .quote-split__content .qs-phone a{color:#F75600;font-weight:700;text-decoration:none;font-size:18px}
-                .quote-card{background:#fff;border:1px solid #e4e9f2;border-radius:18px;padding:36px;max-width:540px;width:100%;box-shadow:0 8px 40px rgba(0,44,109,0.08),0 1px 3px rgba(0,44,109,0.04)}
-                .quote-card h3{color:#002C6D;font-weight:800;font-size:1.4rem;margin-bottom:6px}
-                .quote-card .quote-sub{color:#8a96aa;font-size:13px;margin-bottom:24px}
+                .quote-card{background:#fff;border:1px solid #e4e9f2;border-radius:18px;padding:28px 24px;max-width:480px;width:100%;box-shadow:0 8px 40px rgba(0,44,109,0.08),0 1px 3px rgba(0,44,109,0.04)}
+                .quote-card h3{color:#002C6D;font-weight:800;font-size:1.25rem;margin-bottom:4px}
+                .quote-card .quote-sub{color:#8a96aa;font-size:13px;margin-bottom:18px}
+                .quote-card .form-shell{gap:0.6rem}
+                .quote-card .form-field{gap:0.25rem}
+                .quote-card .form-label{font-size:0.85rem}
+                .quote-card .form-control{min-height:44px;padding:0.6rem 0.85rem;border-radius:10px}
+                .quote-card .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem}
+                @media(max-width:480px){.quote-card .form-row-2{grid-template-columns:1fr}}
 .quote-card .qf-input::placeholder{color:#a0aab8}
 .quote-card select.qf-input{color:#a0aab8}
 .quote-card .qf-btn{width:100%;background:linear-gradient(135deg,#F75600 0%,#FF7A30 100%);color:#fff;border:none;padding:15px;font-size:15px;font-weight:800;border-radius:10px;cursor:pointer;font-family:inherit;transition:transform 0.15s,box-shadow 0.15s}
@@ -570,35 +576,34 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                             <h3>Request a Quote</h3>
                             <p class="quote-sub">We'll get back to you fast.</p>
                             <form class="form-shell" id="lead-form" autocomplete="on">
-                                <div class="form-field">
-                                    <label class="form-label" for="lf-name">Full name <span aria-hidden="true">*</span></label>
-                                    <input class="form-control" id="lf-name" type="text" name="fullName" required autocomplete="name">
+                                <div class="form-row-2">
+                                    <div class="form-field">
+                                        <label class="form-label" for="lf-name">Full name *</label>
+                                        <input class="form-control" id="lf-name" type="text" name="fullName" required autocomplete="name" placeholder="Jane Doe">
+                                    </div>
+                                    <div class="form-field">
+                                        <label class="form-label" for="lf-phone">Phone *</label>
+                                        <input class="form-control" id="lf-phone" type="tel" name="phone" required inputmode="tel" autocomplete="tel" placeholder="(321) 555-0100">
+                                    </div>
                                 </div>
-                                <div class="form-field">
-                                    <label class="form-label" for="lf-phone">Phone number <span aria-hidden="true">*</span></label>
-                                    <input class="form-control" id="lf-phone" type="tel" name="phone" required inputmode="tel" autocomplete="tel">
-                                </div>
-                                <div class="form-field">
-                                    <label class="form-label" for="lf-email">Email</label>
-                                    <input class="form-control" id="lf-email" type="email" name="email" autocomplete="email">
-                                    <p class="form-help">Optional — we'll only use this if we can't reach you by phone.</p>
-                                </div>
-                                <div class="form-field">
-                                    <label class="form-label" for="lf-service">Service needed</label>
-                                    <select class="form-control" id="lf-service" name="service">
-                                        <option value="">Select service</option>
-                                        <option value="AC Repair">AC Repair</option>
-                                        <option value="AC Replacement">AC Replacement</option>
-                                        <option value="New Installation">New Installation</option>
-                                        <option value="Tune-Up">Tune-Up &amp; Maintenance</option>
-                                        <option value="Air Quality">Indoor Air Quality</option>
-                                        <option value="Air Care+">Air Care+ Membership</option>
-                                        <option value="Other">Other / Not Sure</option>
-                                    </select>
-                                </div>
-                                <div class="form-field">
-                                    <label class="form-label" for="lf-message">Anything else?</label>
-                                    <textarea class="form-control" id="lf-message" name="message" rows="3" placeholder="Describe your issue (optional)"></textarea>
+                                <div class="form-row-2">
+                                    <div class="form-field">
+                                        <label class="form-label" for="lf-zip">ZIP *</label>
+                                        <input class="form-control" id="lf-zip" type="text" name="zip" required inputmode="numeric" maxlength="5" pattern="[0-9]{5}" autocomplete="postal-code" placeholder="32801">
+                                    </div>
+                                    <div class="form-field">
+                                        <label class="form-label" for="lf-service">Service *</label>
+                                        <select class="form-control" id="lf-service" name="service" required>
+                                            <option value="" disabled selected>Choose…</option>
+                                            <option value="AC Repair">AC Repair</option>
+                                            <option value="AC Replacement">AC Replacement</option>
+                                            <option value="New Installation">New Installation</option>
+                                            <option value="Tune-Up">Tune-Up</option>
+                                            <option value="Air Quality">Indoor Air Quality</option>
+                                            <option value="Air Care+">Air Care+ Membership</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="form-actions">
                                     <button type="submit" class="qf-btn">Get My Free Quote</button>
