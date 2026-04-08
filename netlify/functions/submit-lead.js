@@ -95,6 +95,17 @@ exports.handler = async (event) => {
   const rawName = (body.name || body.fullName || '').trim();
   const rawPhone = String(body.phone || '').replace(/\D/g, '');
 
+  // Soft value mapping per service — must match client serviceToValue()
+  const serviceToValue = (service) => {
+    const s = String(service || '').toLowerCase();
+    if (s.includes('replacement') || s.includes('installation')) return 250;
+    if (s.includes('repair')) return 75;
+    if (s.includes('membership') || s.includes('air care')) return 60;
+    if (s.includes('tune')) return 25;
+    if (s.includes('iaq') || s.includes('air quality')) return 40;
+    return 25;
+  };
+
   const lead = {
     fullName: escapeHtml(rawName),
     name: escapeHtml(rawName),
@@ -109,7 +120,13 @@ exports.handler = async (event) => {
     issue: escapeHtml(body.issue?.trim() || ''),
     timeline: escapeHtml(body.timeline?.trim() || ''),
     timestamp: new Date().toISOString(),
-    ip: event.headers['x-forwarded-for'] || 'unknown'
+    ip: event.headers['x-forwarded-for'] || 'unknown',
+    // Tracking context from client (for Meta CAPI dedup + attribution)
+    eventId: String(body.event_id || '').trim(),
+    eventSourceUrl: String(body.event_source_url || event.headers.referer || 'https://soligoair.shop').trim(),
+    fbp: String(body.fbp || '').trim(),
+    fbc: String(body.fbc || '').trim(),
+    value: serviceToValue(body.service)
   };
 
   const results = { ghl: false, email: false, meta: false };
@@ -187,30 +204,58 @@ exports.handler = async (event) => {
     if (process.env.META_PIXEL_ID && process.env.META_CAPI_TOKEN) {
       try {
         const crypto = await import('crypto');
-        const hashPhone = crypto.createHash('sha256').update(lead.phone.replace(/\D/g, '')).digest('hex');
-        const hashEmail = lead.email ? crypto.createHash('sha256').update(lead.email.toLowerCase()).digest('hex') : null;
+        const sha256 = (v) => crypto.createHash('sha256').update(String(v).trim().toLowerCase()).digest('hex');
 
-        await fetch(`https://graph.facebook.com/v18.0/${process.env.META_PIXEL_ID}/events`, {
+        const phoneDigits = lead.phone.replace(/\D/g, '');
+        const hashPhone = phoneDigits ? sha256(phoneDigits) : null;
+        const hashEmail = lead.email ? sha256(lead.email) : null;
+        const [firstName, ...rest] = lead.name.split(' ');
+        const lastName = rest.join(' ');
+        const hashFn = firstName ? sha256(firstName) : null;
+        const hashLn = lastName ? sha256(lastName) : null;
+        const hashZip = lead.zip ? sha256(lead.zip) : null;
+
+        const userData = {
+          client_ip_address: lead.ip,
+          client_user_agent: event.headers['user-agent'] || ''
+        };
+        if (hashPhone) userData.ph = [hashPhone];
+        if (hashEmail) userData.em = [hashEmail];
+        if (hashFn) userData.fn = [hashFn];
+        if (hashLn) userData.ln = [hashLn];
+        if (hashZip) userData.zp = [hashZip];
+        if (lead.fbp) userData.fbp = lead.fbp;
+        if (lead.fbc) userData.fbc = lead.fbc;
+
+        const capiEvent = {
+          event_name: 'Lead',
+          event_time: Math.floor(Date.now() / 1000),
+          action_source: 'website',
+          event_source_url: lead.eventSourceUrl,
+          user_data: userData,
+          custom_data: {
+            content_name: lead.service,
+            content_category: lead.source,
+            currency: 'USD',
+            value: lead.value
+          }
+        };
+        if (lead.eventId) capiEvent.event_id = lead.eventId;
+
+        const capiRes = await fetch(`https://graph.facebook.com/v19.0/${process.env.META_PIXEL_ID}/events`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            data: [{
-              event_name: 'Lead',
-              event_time: Math.floor(Date.now() / 1000),
-              action_source: 'website',
-              event_source_url: 'https://soligoair.shop',
-              user_data: {
-                ph: [hashPhone],
-                ...(hashEmail && { em: [hashEmail] }),
-                client_ip_address: lead.ip,
-                client_user_agent: event.headers['user-agent'] || ''
-              },
-              custom_data: { service: lead.service, currency: 'USD', value: 1 }
-            }],
+            data: [capiEvent],
+            ...(process.env.META_TEST_EVENT_CODE && { test_event_code: process.env.META_TEST_EVENT_CODE }),
             access_token: process.env.META_CAPI_TOKEN
           })
         });
-        results.meta = true;
+        results.meta = capiRes.ok;
+        if (!capiRes.ok) {
+          const errBody = await capiRes.text();
+          console.error('Meta CAPI non-2xx:', capiRes.status, errBody);
+        }
       } catch (err) {
         console.error('Meta CAPI error:', err.message);
       }

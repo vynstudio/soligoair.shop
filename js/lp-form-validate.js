@@ -32,6 +32,18 @@
     return String(str || '').replace(/\D/g, '');
   }
 
+  // Soft value mapping per service type — gives Meta a relative quality signal
+  // until real revenue from GHL → CAPI Schedule/Purchase events flows back.
+  function serviceToValue(service) {
+    var s = String(service || '').toLowerCase();
+    if (s.indexOf('replacement') !== -1 || s.indexOf('installation') !== -1) return 250;
+    if (s.indexOf('repair') !== -1) return 75;
+    if (s.indexOf('membership') !== -1 || s.indexOf('air care') !== -1) return 60;
+    if (s.indexOf('tune') !== -1) return 25;
+    if (s.indexOf('iaq') !== -1 || s.indexOf('air quality') !== -1) return 40;
+    return 25;
+  }
+
   function clearError(input) {
     input.classList.remove('lp-input--invalid');
     var next = input.nextElementSibling;
@@ -81,6 +93,28 @@
     return errors;
   }
 
+  // Read a cookie value by name (used for fbp/fbc capture)
+  function getCookie(name) {
+    var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  // Build _fbc from a fresh fbclid query param if cookie isn't set yet
+  function getFbc() {
+    var fromCookie = getCookie('_fbc');
+    if (fromCookie) return fromCookie;
+    var params = new URLSearchParams(window.location.search);
+    var fbclid = params.get('fbclid');
+    if (!fbclid) return '';
+    return 'fb.1.' + Date.now() + '.' + fbclid;
+  }
+
+  // Generate a UUID-ish event_id for browser/server CAPI dedup
+  function generateEventId() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'evt-' + Date.now() + '-' + Math.random().toString(36).slice(2, 11);
+  }
+
   function buildPayload(form) {
     var data = {};
     var fd = new FormData(form);
@@ -101,6 +135,12 @@
 
     // Service is required — fallback to data-service attr if needed
     if (!data.service) data.service = form.getAttribute('data-service') || 'Not specified';
+
+    // Tracking context — needed for Meta CAPI dedup + attribution
+    data.event_id = generateEventId();
+    data.event_source_url = window.location.href;
+    data.fbp = getCookie('_fbp');
+    data.fbc = getFbc();
 
     return data;
   }
@@ -142,6 +182,23 @@
         });
         var json = await res.json();
         if (json.success) {
+          // Fire conversion events with the SAME event_id used by server CAPI (dedup)
+          var serviceValue = serviceToValue(payload.service);
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', 'Lead', {
+              content_name: payload.service,
+              content_category: payload.source,
+              value: serviceValue,
+              currency: 'USD'
+            }, { eventID: payload.event_id });
+          }
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', {
+              currency: 'USD',
+              value: serviceValue,
+              event_source: payload.source
+            });
+          }
           showSuccess(form, successMsg);
         } else {
           throw new Error(json.message || 'Submission failed');
