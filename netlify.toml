@@ -109,6 +109,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/care"
+  to = "/air-care-plus"
+  status = 301
+  force = true
+
 # Google Ads funnel alias → canonical landing page
 [[redirects]]
   from = "/funnel"
