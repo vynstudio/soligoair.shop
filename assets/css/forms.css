@@ -82,3 +82,123 @@ textarea.form-control {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   Lead form card — single source of truth for the white form card used in
+   every hero embedded form (homepage + all landing pages).
+   ========================================================================== */
+
+.lp-form-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 26px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+  max-width: 560px;
+  width: 100%;
+}
+
+.lp-form-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(135deg, #F75600, #FF7A30);
+}
+
+.lp-form-tag {
+  display: inline-block;
+  background: rgba(247, 86, 0, 0.1);
+  color: #F75600;
+  font-weight: 800;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.lp-form-title {
+  font-size: 1.2rem;
+  color: #002C6D;
+  margin-bottom: 4px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.lp-form-sub {
+  font-size: 13px;
+  color: #8a96aa;
+  margin-bottom: 18px;
+}
+
+/* Override the global blue focus to brand orange when inside an lp-form-card */
+.lp-form-card .form-control:focus {
+  outline: none;
+  border-color: #F75600;
+  box-shadow: 0 0 0 4px rgba(247, 86, 0, 0.12);
+}
+
+.lp-btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #F75600, #FF7A30);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+  min-height: 52px;
+  box-shadow: 0 6px 22px rgba(247, 86, 0, 0.32);
+  transition: transform 0.12s, box-shadow 0.12s;
+  letter-spacing: 0.2px;
+  font-family: inherit;
+}
+
+.lp-btn-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(247, 86, 0, 0.4);
+}
+
+.lp-btn-submit:active {
+  transform: scale(0.98);
+}
+
+.lp-btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.lp-form-disclaimer {
+  font-size: 11px;
+  color: #8a96aa;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.lp-form-call {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: #8a96aa;
+  margin-top: 8px;
+}
+
+.lp-form-call a {
+  color: #F75600;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .lp-form-card {
+    padding: 24px 20px;
+  }
+}
