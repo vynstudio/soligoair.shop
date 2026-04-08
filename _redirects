@@ -1,5 +1,16 @@
-https://www.soligoair.shop/* https://soligoair.shop/:splat 301!
-/home / 301
-/ac-repair /service-repair 301
-/hvac / 301
-/* /404.html 404
+# www → non-www canonical
+https://www.soligoair.shop/*  https://soligoair.shop/:splat  301!
+
+# Pretty URLs (strip .html extension)
+/:page.html  /:page  301
+
+# Common alias redirects
+/home  /  301
+/ac-repair  /service-repair  301
+/hvac  /  301
+
+# Google Ads funnel aliases
+/funnel  /ac-repair-orlando  301
+
+# 404 fallback (must be last)
+/*  /404.html  404
