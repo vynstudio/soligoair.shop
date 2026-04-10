@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Air Care+ Membership — First Month Free | Soligo Air Orlando</title>
-    <link rel="icon" href="icon-v2.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="icon-v2.webp" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="description" content="Air Care+ AC membership in Orlando — $29/mo, first month free. 2 annual tune-ups, 15% off repairs, priority service, no overtime fees. Licensed FL #CAC1823002.">
@@ -43,7 +43,213 @@
 
     <!-- Brand fonts only -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/forms.css">
+    <style>/* forms.css inlined */
+/* ==========================================================================
+   Soligo Air — Global form design system
+   Source of truth for every form on the site.
+   See: lp-meta-*.html, ac-*-orlando.html, index.html, air-care-plus.html
+   ========================================================================== */
+
+.form-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.form-control {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(20, 34, 56, 0.16);
+  border-radius: 14px;
+  background: #fff;
+  color: #142238;
+  font: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-control::placeholder {
+  color: rgba(20, 34, 56, 0.45);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+.form-help {
+  font-size: 0.875rem;
+  color: rgba(20, 34, 56, 0.68);
+}
+
+.form-error {
+  font-size: 0.875rem;
+  color: #b42318;
+}
+
+.form-field.is-error .form-control {
+  border-color: #d92d20;
+  box-shadow: 0 0 0 4px rgba(217, 45, 32, 0.12);
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions > * {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Lead form card — single source of truth for the white form card used in
+   every hero embedded form (homepage + all landing pages).
+   ========================================================================== */
+
+.lp-form-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 26px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+  max-width: 560px;
+  width: 100%;
+}
+
+.lp-form-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(135deg, #F75600, #FF7A30);
+}
+
+.lp-form-tag {
+  display: inline-block;
+  background: rgba(247, 86, 0, 0.1);
+  color: #F75600;
+  font-weight: 800;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.lp-form-title {
+  font-size: 1.2rem;
+  color: #002C6D;
+  margin-bottom: 4px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.lp-form-sub {
+  font-size: 13px;
+  color: #8a96aa;
+  margin-bottom: 18px;
+}
+
+/* Override the global blue focus to brand orange when inside an lp-form-card */
+.lp-form-card .form-control:focus {
+  outline: none;
+  border-color: #F75600;
+  box-shadow: 0 0 0 4px rgba(247, 86, 0, 0.12);
+}
+
+.lp-btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #F75600, #FF7A30);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+  min-height: 52px;
+  box-shadow: 0 6px 22px rgba(247, 86, 0, 0.32);
+  transition: transform 0.12s, box-shadow 0.12s;
+  letter-spacing: 0.2px;
+  font-family: inherit;
+}
+
+.lp-btn-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(247, 86, 0, 0.4);
+}
+
+.lp-btn-submit:active {
+  transform: scale(0.98);
+}
+
+.lp-btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.lp-form-disclaimer {
+  font-size: 11px;
+  color: #8a96aa;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.lp-form-call {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: #8a96aa;
+  margin-top: 8px;
+}
+
+.lp-form-call a {
+  color: #F75600;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .lp-form-card {
+    padding: 24px 20px;
+  }
+}
+
+</style>
 
     <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -200,7 +406,7 @@ h1,h2,h3,h4{color:#002C6D;font-weight:800;letter-spacing:-0.3px;line-height:1.2}
 <!-- ============ MINIMAL HEADER ============ -->
 <div class="lp-header">
     <a href="index.html" class="lp-logo">
-        <img src="icon-v2.png" alt="Soligo Air">
+        <img src="icon-v2.webp" alt="Soligo Air">
         <span>SOLIGO AIR</span>
     </a>
     <a href="tel:3213847868" class="lp-header-call">
