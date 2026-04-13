@@ -37,6 +37,31 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://soligoair.shop/">
 
+    <!-- ============ Google tag (gtag.js) ============ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17179141807"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17179141807');
+    </script>
+
+    <!-- ============ Meta Pixel ============ -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1231230569192614');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1231230569192614&ev=PageView&noscript=1"/></noscript>
+
     <!-- DNS Prefetch & Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -556,7 +581,7 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
                             <span class="lp-form-tag">★ Free Quote · 60-Sec Form</span>
                             <h3 class="lp-form-title">Request Your Free Quote</h3>
                             <p class="lp-form-sub">Tell us what you need and we'll call you back fast — no pressure, no surprises.</p>
-                            <form class="form-shell" id="lead-form" autocomplete="on">
+                            <form class="form-shell" id="lead-form" autocomplete="on" data-lp-form data-source="homepage">
                                 <div class="form-row-2">
                                     <div class="form-field">
                                         <label class="form-label" for="lf-name">Full name *</label>
@@ -858,28 +883,7 @@ header.transparent:not(.smaller) #mainmenu > li > a, header.transparent:not(.sma
     <script src="js/designesia.js" defer></script>
     <script src="js/custom-marquee.js" defer></script>
 
-    <script>
-    document.getElementById('lead-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      var btn = this.querySelector('button[type="submit"]');
-      btn.disabled = true; btn.textContent = 'Sending\u2026';
-      var data = Object.fromEntries(new FormData(this));
-      data.source = 'homepage';
-      try {
-        var res = await fetch('/.netlify/functions/submit-lead', {
-          method: 'POST', headers: {'Content-Type':'application/json'},
-          body: JSON.stringify(data)
-        });
-        var json = await res.json();
-        if (json.success) {
-          this.innerHTML = '<div style="text-align:center;padding:24px 0;color:#002C6D;font-weight:700;font-size:16px;">Thank you! A specialist will call you shortly.</div>';
-        } else { throw new Error(json.message); }
-      } catch(err) {
-        btn.disabled = false; btn.textContent = 'Get My Free Quote';
-        alert('Something went wrong. Please call us at (321) 384-7868.');
-      }
-    });
-    </script>
+    <script src="js/lp-form-validate.js" defer></script>
 
 
             <!-- Sticky Mobile CTA -->

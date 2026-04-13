@@ -24,7 +24,7 @@
     style.id = STYLE_ID;
     style.textContent =
       '.lp-form-error{font-size:12px;color:#d93025;font-weight:600;margin-top:-4px;padding:0 2px;line-height:1.3}' +
-      '.lp-input.lp-input--invalid{border-color:#d93025!important;box-shadow:0 0 0 3px rgba(217,48,37,.08)!important}';
+      '.lp-input.lp-input--invalid,.form-control.lp-input--invalid{border-color:#d93025!important;box-shadow:0 0 0 3px rgba(217,48,37,.08)!important}';
     document.head.appendChild(style);
   }
 
